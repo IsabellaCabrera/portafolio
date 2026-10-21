@@ -1,0 +1,268 @@
+/* Figma "Footer": 1440×616, card group 1197×573 at x=122, y=21 */
+.footer {
+  background: var(--color-bg-footer);
+  padding-inline: max(16px, env(safe-area-inset-left, 0px)) max(16px, env(safe-area-inset-right, 0px));
+  padding-block: calc(21 * var(--u)) calc(22 * var(--u));
+  scroll-margin-top: 0;
+}
+
+.card {
+  display: grid;
+  grid-template-columns: minmax(0, 696fr) 2px minmax(0, 500fr);
+  width: min(100%, calc(1197 * var(--u)));
+  min-height: calc(573 * var(--u));
+  margin-inline: auto;
+}
+
+/* ── message side ────────────────────────────────────────────── */
+.message {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: calc(20 * var(--u));
+  padding: calc(56 * var(--u)) calc(48 * var(--u)) calc(56 * var(--u)) calc(56 * var(--u));
+}
+
+.script {
+  font-family: var(--font-script);
+  font-size: var(--type-script-l-size);
+  color: var(--color-brand-teal);
+  line-height: 2.1;
+}
+
+.headline {
+  font-size: var(--type-footer-headline-size);
+  font-weight: 900;
+  line-height: var(--type-footer-headline-leading);
+  color: var(--color-brand-olive);
+}
+
+.body {
+  max-width: 470px;
+  font-size: var(--type-body-m-size);
+  line-height: var(--type-body-m-leading);
+  color: var(--color-text-ink);
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: calc(28 * var(--u));
+  min-height: 56px;
+  padding: var(--space-button-y) var(--space-button-right) var(--space-button-y) var(--space-button-left);
+  border-radius: var(--radius-pill);
+  background: var(--color-brand-olive);
+  color: var(--color-bg-white);
+  font-size: var(--type-button-size);
+  font-weight: 600;
+  text-decoration: none;
+  max-width: 100%;
+  transition: background var(--dur-fast), transform var(--dur-base) var(--ease-out);
+}
+
+.button span {
+  overflow-wrap: anywhere;
+}
+
+.button svg {
+  flex: none;
+  transition: transform var(--dur-base) var(--ease-out);
+}
+
+.button:hover {
+  background: var(--color-text-ink);
+}
+
+.button:hover svg {
+  transform: translateX(4px);
+}
+
+.divider {
+  background: var(--color-brand-olive);
+  width: 2px;
+}
+
+/* ── address side ────────────────────────────────────────────── */
+.address {
+  display: flex;
+  flex-direction: column;
+  gap: calc(28 * var(--u));
+  padding: calc(40 * var(--u)) calc(40 * var(--u)) calc(56 * var(--u)) calc(48 * var(--u));
+  min-width: 0;
+}
+
+.postage {
+  position: relative;
+  width: 100%;
+  max-width: 412px;
+  aspect-ratio: 412 / 157;
+  align-self: flex-end;
+}
+
+.postmark {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: left center;
+}
+
+/* Stamp art (Figma "Stamp", 121×143, rotated −4°) sits on the right of the postage */
+.stamp {
+  position: absolute;
+  right: 0;
+  top: 4.5%;
+  width: 29.4%;
+  aspect-ratio: 121 / 143;
+  transform: rotate(4deg);
+  background: var(--color-bg-white);
+  /* perforated edge */
+  -webkit-mask:
+    radial-gradient(circle at 50% 50%, transparent 3.6px, #000 4px) -6px -6px / 12px 12px,
+    linear-gradient(#000, #000) center / calc(100% - 8px) calc(100% - 8px) no-repeat;
+  mask:
+    radial-gradient(circle at 50% 50%, transparent 3.6px, #000 4px) -6px -6px / 12px 12px,
+    linear-gradient(#000, #000) center / calc(100% - 8px) calc(100% - 8px) no-repeat;
+  filter: drop-shadow(0 4px 8px rgb(0 0 0 / 0.15));
+}
+
+.stampArt {
+  position: absolute;
+  inset: 8.3%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 7% 8%;
+  background: linear-gradient(150deg, #c6e04a 0%, var(--color-brand-teal) 100%);
+  color: var(--color-bg-white);
+}
+
+.stampValue {
+  font-weight: 900;
+  font-size: clamp(11px, calc(16 * var(--u)), 16px);
+  line-height: 1;
+}
+
+.stampLogo {
+  width: 72%;
+  align-self: center;
+  color: var(--color-text-ink);
+}
+
+.stampCountry {
+  font-weight: 600;
+  font-size: clamp(5px, calc(7 * var(--u)), 7px);
+  letter-spacing: 0.12em;
+  line-height: 1;
+}
+
+.to {
+  font-family: var(--font-script);
+  font-size: var(--type-script-s-size);
+  color: var(--color-brand-olive);
+  line-height: 2.1;
+}
+
+.lines {
+  display: grid;
+  gap: calc(28 * var(--u));
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.line {
+  display: grid;
+  gap: 4px;
+  padding-bottom: 10px;
+  border-bottom: 1.2px solid var(--color-brand-olive);
+}
+
+.label {
+  font-family: var(--font-label);
+  font-weight: 500;
+  font-size: var(--type-overline-size);
+  letter-spacing: var(--type-overline-tracking);
+  text-transform: uppercase;
+  color: var(--color-brand-teal-dark);
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  min-height: 28px;
+  font-size: var(--type-link-size);
+  font-weight: 500;
+  color: var(--color-text-ink);
+  text-decoration: none;
+}
+
+.linkText {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.linkIcon {
+  flex: none;
+  color: var(--color-brand-teal);
+  transition: transform var(--dur-base) var(--ease-out);
+}
+
+.link:hover .linkText {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.link:hover .linkIcon {
+  transform: translate(2px, -2px);
+}
+
+/* ── tablet / mobile ─────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .footer {
+    padding-block: 32px 40px;
+  }
+
+  .card {
+    grid-template-columns: 1fr;
+    width: 100%;
+    max-width: 620px;
+  }
+
+  .message {
+    padding: 8px 0 32px;
+    gap: 16px;
+  }
+
+  .button {
+    margin-top: 8px;
+    font-size: 16px;
+    padding-inline: 20px 18px;
+  }
+
+  .divider {
+    width: 100%;
+    height: 2px;
+  }
+
+  .address {
+    padding: 32px 0 0;
+    gap: 20px;
+  }
+
+  .postage {
+    align-self: center;
+  }
+
+  .lines {
+    gap: 20px;
+  }
+
+  .link {
+    font-size: 16px;
+  }
+}

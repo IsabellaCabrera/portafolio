@@ -1,0 +1,40 @@
+.stage {
+  position: relative;
+  width: 100%;
+  aspect-ratio: var(--ar);
+  container-type: inline-size;
+}
+
+.item {
+  position: absolute;
+  left: var(--l);
+  top: var(--t);
+  width: var(--w);
+  height: var(--h);
+  transform-origin: 0 0;
+  transform: var(--m, none);
+}
+
+@media (max-width: 767px) {
+  .stage[data-mobile] {
+    aspect-ratio: var(--mar, var(--ar));
+  }
+
+  .stage[data-mobile] .item {
+    left: var(--ml, var(--l));
+    top: var(--mt, var(--t));
+    width: var(--mw, var(--w));
+    height: var(--mh, var(--h));
+    transform: var(--mm, var(--m, none));
+  }
+
+  .stage[data-mobile] .mobileHidden {
+    display: none;
+  }
+}
+
+@media (min-width: 768px) {
+  .desktopHidden {
+    display: none;
+  }
+}

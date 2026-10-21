@@ -1,0 +1,52 @@
+.cluster {
+  pointer-events: none;
+}
+
+.slot {
+  pointer-events: none;
+}
+
+.slot:hover,
+.slot:focus-within {
+  z-index: 5;
+}
+
+.stamp {
+  pointer-events: auto;
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 4px;
+  transition: transform var(--dur-slow) var(--ease-out);
+  -webkit-tap-highlight-color: transparent;
+}
+
+.img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: grayscale(1) contrast(1.04) drop-shadow(0 4px 8px rgb(0 0 0 / 0.15));
+  transition: filter var(--dur-slow) var(--ease-out);
+}
+
+.stamp:not(.static):hover,
+.stamp:not(.static):focus-visible {
+  transform: translateY(-7%) scale(1.06);
+}
+
+.stamp:not(.static):hover .img,
+.stamp:not(.static):focus-visible .img,
+.stamp:not(.static):active .img {
+  filter: grayscale(0) contrast(1) drop-shadow(0 22px 26px rgb(0 0 0 / 0.28));
+}
+
+.stamp:focus-visible {
+  outline-offset: 6px;
+}
+
+/* Touch: there is no hover, so the first tap shows color while navigating */
+@media (hover: none) {
+  .stamp:not(.static):active {
+    transform: translateY(-7%) scale(1.06);
+  }
+}

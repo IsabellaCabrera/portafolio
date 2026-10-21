@@ -31,6 +31,7 @@
   --color-problem: #b40000;          /* Case "Problem" heading */
   --color-sign-panel: #1d4a26;       /* Entrance sign green */
   --color-white-soft: #fafafa;
+  --color-crumb: #767670;          /* breadcrumb text: Figma #bfbfbf darkened for 4.5:1 contrast */
 
   /* ── Typography · families (loaded with next/font, see src/lib/fonts.ts) ─ */
   --font-sans: var(--ff-work-sans), "Work Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
@@ -111,6 +112,12 @@
   /* Fluid side gutter: 128px at 1440, never below 16px (+ safe-area). */
   --gutter: max(16px, min(var(--layout-content-margin), 8.9vw));
   --nav-height: 98px;            /* navbar sits at y=59, 39px tall */
+  /*
+   * Figma unit: 1px at ≥1440 viewport, shrinks proportionally below.
+   * Use as calc(<figma px> * var(--u)) for layout that must match the
+   * 1440 frame exactly on desktop and scale down on tablet.
+   */
+  --u: min(1px, calc(100vw / 1440));
 
   /* ── Radius ──────────────────────────────────────────────────────────── */
   --radius-pill: 60px;           /* radius/pill — chips, email button */

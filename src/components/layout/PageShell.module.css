@@ -1,0 +1,21 @@
+.shell {
+  position: relative;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  background: var(--color-bg-page);
+  overflow-x: clip;
+}
+
+.shell[data-bg="about"] {
+  background: var(--color-bg-about);
+}
+
+.shell[data-bg="home"] {
+  background: var(--color-bg-footer);
+}
+
+.main {
+  flex: 1;
+  outline: none;
+}

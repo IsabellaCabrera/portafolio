@@ -1,0 +1,24 @@
+.chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 39px;
+  padding: var(--space-chip-y) var(--space-chip-x);
+  border: var(--stroke-chip);
+  border-radius: var(--radius-pill);
+  font-family: var(--font-label);
+  font-weight: 500;
+  font-size: max(15px, calc(18 * var(--u)));
+  line-height: 1;
+  color: var(--color-brand-teal-dark);
+  white-space: nowrap;
+}
+
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 11px 16px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}

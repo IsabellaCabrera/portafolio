@@ -1,0 +1,273 @@
+.stage {
+  overflow: hidden;
+  background: var(--color-bg-footer);
+  isolation: isolate;
+}
+
+/* ── map background ─────────────────────────────────────────── */
+.map {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.mapImg {
+  object-fit: cover;
+}
+
+/* ── "welcome to my creative city." (box 430,385 · 710×310) ──── */
+.title {
+  container-type: inline-size;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.titleInner {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+  font-weight: 500;
+  color: var(--color-brand-olive);
+}
+
+.welcome,
+.toMy,
+.city {
+  position: absolute;
+  display: block;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.welcome {
+  left: 10.42%;
+  top: 1.31%;
+  width: 60.85%;
+  font-size: calc(97.6 / 710 * 100cqw);
+  line-height: 1.178;
+  letter-spacing: -0.01em;
+}
+
+.toMy {
+  left: 0.99%;
+  top: 22.9%;
+  width: 79.58%;
+  font-size: calc(80.5 / 710 * 100cqw);
+  line-height: 1.168;
+}
+
+.city {
+  left: 58.98%;
+  top: 23.82%;
+  width: 35.35%;
+  font-family: var(--font-script);
+  font-weight: 400;
+  font-size: calc(105.7 / 710 * 100cqw);
+  line-height: 2.157;
+  color: #00967d;
+  transform-origin: 0 0;
+  transform: matrix(0.96, -0.278, 0.278, 0.96, 0, 0);
+}
+
+/* Spanish: "creativa." is longer than "city." */
+.city[data-lang="es"] {
+  left: 52%;
+  width: 46%;
+  font-size: calc(88 / 710 * 100cqw);
+  line-height: 2.5;
+}
+
+/* ── photo + postcard ───────────────────────────────────────── */
+.photo {
+  z-index: 3;
+}
+
+.photoLink {
+  display: block;
+  width: 100%;
+  height: 100%;
+  transition: transform var(--dur-base) var(--ease-out);
+}
+
+.photoLink img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 6px 12px rgb(0 0 0 / 0.12));
+}
+
+.photoLink:hover {
+  transform: rotate(-2deg) scale(1.03);
+}
+
+.postcard {
+  z-index: 2;
+}
+
+.postcard img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 10px 18px rgb(0 0 0 / 0.14));
+}
+
+/* ── stamps ─────────────────────────────────────────────────── */
+.stampSlot {
+  z-index: 4;
+}
+
+.stampSlot:hover,
+.stampSlot:focus-within {
+  z-index: 6;
+}
+
+.stamp {
+  display: block;
+  width: 100%;
+  height: 100%;
+  transition: transform var(--dur-slow) var(--ease-out);
+  -webkit-tap-highlight-color: transparent;
+}
+
+.stampImg {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: grayscale(1) contrast(1.05) drop-shadow(0 4px 8px rgb(0 0 0 / 0.15));
+  transition: filter var(--dur-slow) var(--ease-out);
+}
+
+.stamp:hover,
+.stamp:focus-visible {
+  transform: translateY(-6%) scale(1.06);
+}
+
+.stamp:hover .stampImg,
+.stamp:focus-visible .stampImg,
+.stampSlot[data-active] .stampImg {
+  filter: grayscale(0) contrast(1) drop-shadow(0 18px 24px rgb(0 0 0 / 0.25));
+}
+
+.stamp:focus-visible {
+  outline-offset: 6px;
+}
+
+/* ── "Home / 03 Active": focused stamp in color, the rest blurred ── */
+.blurrable,
+.stampSlot {
+  transition:
+    filter var(--dur-slow) var(--ease-out),
+    opacity var(--dur-slow) var(--ease-out);
+}
+
+.stage[data-focus] .blurrable,
+.stage[data-focus] .stampSlot:not([data-active]) {
+  filter: blur(var(--blur-focus));
+}
+
+.stage[data-focus] .stampSlot[data-active] {
+  z-index: 10;
+}
+
+.stage[data-focus] .stampSlot[data-active] .stamp {
+  transform: scale(1.18);
+}
+
+/* ── entrance layer ─────────────────────────────────────────── */
+.entrance {
+  position: absolute;
+  inset: 0;
+  z-index: 20;
+}
+
+.dot {
+  border-radius: 50%;
+  background: var(--color-text-ink);
+  transition: opacity var(--dur-slow) var(--ease-out);
+}
+
+.blocks {
+  position: absolute;
+  inset: 0;
+}
+
+.block {
+  position: absolute;
+  background-repeat: no-repeat;
+  transition:
+    transform 900ms var(--ease-in-out) var(--d),
+    opacity 700ms var(--ease-out) calc(var(--d) + 150ms),
+    filter 700ms var(--ease-out) var(--d);
+}
+
+.signSlot {
+  z-index: 3;
+  transition:
+    transform 700ms var(--ease-in-out),
+    opacity 500ms var(--ease-out) 150ms;
+}
+
+/* Entrance: the city is small and asleep behind the glass blocks */
+.stage.stage[data-phase="entrance"] .title {
+  transform: scale(0.6875);
+  transform-origin: 40.85% 99.7%;
+}
+
+.stage.stage[data-phase="entrance"] .photo {
+  transform: scale(0.69);
+  transform-origin: 50% 40.7%;
+  filter: blur(6px);
+}
+
+.stage[data-phase="entrance"] .reveal {
+  opacity: 0;
+}
+
+.title,
+.photo {
+  transition:
+    transform 1100ms var(--ease-in-out),
+    filter var(--dur-slow) var(--ease-out);
+}
+
+.stage[data-phase="entering"] .title,
+.stage[data-phase="entering"] .photo {
+  transition-delay: 250ms;
+}
+
+.reveal {
+  transition:
+    opacity 700ms var(--ease-out) calc(700ms + var(--i, 0) * 120ms),
+    filter var(--dur-slow) var(--ease-out);
+}
+
+/* Entering: blocks scatter, sign drops, the city wakes up */
+.stage[data-phase="entering"] .block {
+  transform: translate(var(--dx), var(--dy)) scale(0.82) rotate(4deg);
+  opacity: 0;
+  filter: blur(4px);
+}
+
+.stage[data-phase="entering"] .signSlot {
+  transform: translateY(40%) rotate(6deg) scale(0.9);
+  opacity: 0;
+}
+
+.stage[data-phase="entering"] .dot {
+  opacity: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .stage.stage[data-phase="entrance"] .title,
+  .stage.stage[data-phase="entrance"] .photo {
+    transform: none;
+    filter: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .stage.stage[data-phase="entrance"] .title,
+  .stage.stage[data-phase="entrance"] .photo {
+    transform: scale(0.82);
+  }
+}
