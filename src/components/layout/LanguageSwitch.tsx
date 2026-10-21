@@ -1,14 +1,14 @@
 "use client";
 
 import { usePathname, useRouter } from "next/navigation";
-import { useTransition } from "react";
+import { useEffect, useState, useTransition } from "react";
 import { switchLocalePath, type Locale } from "@/i18n/config";
 import styles from "./LanguageSwitch.module.css";
 
 /**
- * Eng / Esp switch (the toggle from the earlier "Home / 02 Scroll" frame:
- * a recessed two-position switch with an indicator light on each side).
- * Keeps the current route and scroll target, remembers the choice in a cookie.
+ * EN / ES toggle: a pill switch (checkbox) styled with the UI kit tokens.
+ * Off = English, on = Spanish. Keeps the current route, query and #hash and
+ * remembers the choice in a cookie.
  */
 export function LanguageSwitch({
   lang,
@@ -20,37 +20,37 @@ export function LanguageSwitch({
   const pathname = usePathname();
   const router = useRouter();
   const [pending, startTransition] = useTransition();
-  const next: Locale = lang === "en" ? "es" : "en";
+  // optimistic state so the knob moves immediately
+  const [checked, setChecked] = useState(lang === "es");
+  useEffect(() => setChecked(lang === "es"), [lang]);
 
-  const toggle = () => {
-    document.cookie = `NEXT_LOCALE=${next}; path=/; max-age=31536000; samesite=lax`;
-    const hash = typeof window !== "undefined" ? window.location.hash : "";
-    const search = typeof window !== "undefined" ? window.location.search : "";
-    startTransition(() => router.push(`${switchLocalePath(pathname, next)}${search}${hash}`, { scroll: false }));
+  const onChange = (next: boolean) => {
+    const to: Locale = next ? "es" : "en";
+    setChecked(next);
+    document.cookie = `NEXT_LOCALE=${to}; path=/; max-age=31536000; samesite=lax`;
+    const { search, hash } = window.location;
+    startTransition(() => router.push(`${switchLocalePath(pathname, to)}${search}${hash}`, { scroll: false }));
   };
 
   return (
-    <button
-      type="button"
-      role="switch"
-      aria-checked={lang === "es"}
-      aria-label={`${labels.label}: ${lang === "en" ? "English" : "Español"}. ${labels.switchTo}`}
-      onClick={toggle}
-      className={styles.switch}
-      data-lang={lang}
-      data-pending={pending || undefined}
-    >
-      <span className={styles.led} data-on={lang === "en"} aria-hidden="true" />
-      <span className={styles.track} aria-hidden="true">
-        <span className={styles.knob} />
-        <span className={styles.option} data-active={lang === "en"}>
-          {labels.en}
-        </span>
-        <span className={styles.option} data-active={lang === "es"}>
-          {labels.es}
-        </span>
+    <div className={styles.wrap} data-pending={pending || undefined}>
+      <span className={styles.tag} data-active={!checked} aria-hidden="true">
+        {labels.en}
       </span>
-      <span className={styles.led} data-on={lang === "es"} aria-hidden="true" />
-    </button>
+      <label className={styles.switch}>
+        <input
+          type="checkbox"
+          role="switch"
+          className={styles.input}
+          checked={checked}
+          onChange={(e) => onChange(e.target.checked)}
+          aria-label={`${labels.label}: Español`}
+        />
+        <span className={styles.knob} aria-hidden="true" />
+      </label>
+      <span className={styles.tag} data-active={checked} aria-hidden="true">
+        {labels.es}
+      </span>
+    </div>
   );
 }

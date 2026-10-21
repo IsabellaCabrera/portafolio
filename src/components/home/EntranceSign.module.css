@@ -54,9 +54,16 @@
   font-weight: 900;
   font-size: calc(73.2 / 713 * 100cqw);
   line-height: 1.17;
+  max-width: 66%;
   letter-spacing: 0.005em;
   color: #fafafa;
   white-space: nowrap;
+}
+
+.word[data-long] {
+  /* "PORTAFOLIO" is one letter longer than the Figma word: keep it clear of the arrow */
+  font-size: calc(65 / 713 * 100cqw);
+  top: 40.6%;
 }
 
 .arrow {
@@ -68,6 +75,12 @@
   transition: transform var(--dur-base) var(--ease-out);
 }
 
-.sign:hover:not(:disabled) .arrow {
+.sign:hover:not(:disabled) .word[data-long] {
+  /* "PORTAFOLIO" is one letter longer than the Figma word: keep it clear of the arrow */
+  font-size: calc(65 / 713 * 100cqw);
+  top: 40.6%;
+}
+
+.arrow {
   transform: translateX(10%);
 }

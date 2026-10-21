@@ -1,7 +1,7 @@
 .wrap {
   display: flex;
   align-items: center;
-  gap: max(12px, calc(21 * var(--u)));
+  gap: 4px;
   min-height: 44px;
 }
 
@@ -9,14 +9,16 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: max(40px, calc(56 * var(--u)));
+  /* 44px tap target, small arrow inside */
+  width: 44px;
   min-height: 44px;
+  margin-left: -12px;
   color: var(--color-brand-teal-dark);
   transition: transform var(--dur-base) var(--ease-out);
 }
 
 .back svg {
-  width: 100%;
+  width: 20px;
   height: auto;
 }
 
@@ -25,7 +27,7 @@
 }
 
 .backSpacer {
-  width: max(40px, calc(56 * var(--u)));
+  width: 32px;
 }
 
 .list {

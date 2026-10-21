@@ -2,7 +2,7 @@
   position: absolute;
   inset: 0 0 auto;
   z-index: 40;
-  padding-top: calc(env(safe-area-inset-top, 0px) + max(20px, calc(59 * var(--u))));
+  padding-top: calc(env(safe-area-inset-top, 0px) + max(14px, calc(36 * var(--u))));
   padding-inline: max(16px, env(safe-area-inset-left, 0px)) max(16px, env(safe-area-inset-right, 0px));
   pointer-events: none;
 }
@@ -14,13 +14,14 @@
   grid-template-columns: auto auto auto auto auto;
   align-items: center;
   justify-content: center;
-  column-gap: calc(120 * var(--u));
+  column-gap: max(28px, calc(72 * var(--u)));
   width: fit-content;
   margin-inline: auto;
 }
 
 .link {
-  font-size: max(15px, var(--type-nav-size));
+  /* smaller than the Figma 27.6px nav, per review */
+  font-size: max(15px, calc(19 * var(--u)));
   font-weight: 400;
   color: var(--color-text-ink);
   text-decoration: none;
@@ -50,8 +51,8 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: max(48px, calc(85 * var(--u)));
-  height: max(44px, calc(39 * var(--u)));
+  width: max(44px, calc(60 * var(--u)));
+  height: 44px;
   color: var(--color-text-ink);
   transition: transform var(--dur-base) var(--ease-out);
 }
@@ -63,7 +64,7 @@
 .lang {
   pointer-events: auto;
   position: absolute;
-  top: calc(env(safe-area-inset-top, 0px) + max(20px, calc(59 * var(--u))) + max(4px, calc(4 * var(--u))));
+  top: calc(env(safe-area-inset-top, 0px) + max(14px, calc(36 * var(--u))));
   right: max(16px, calc(env(safe-area-inset-right, 0px) + calc(56 * var(--u))));
 }
 
@@ -84,8 +85,8 @@
   top: 12px;
 }
 
-/* Tablet: the language switch would collide with Contact — move it to its own row */
-@media (max-width: 1180px) {
+/* Mobile: the language switch gets its own row above the nav */
+@media (max-width: 899px) {
   .header {
     padding-top: calc(env(safe-area-inset-top, 0px) + 12px);
     display: grid;

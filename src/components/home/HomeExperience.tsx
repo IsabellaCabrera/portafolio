@@ -32,14 +32,12 @@ const boxes = {
   title: { x: 430, y: 385, w: 710, h: 310 } satisfies Box,
   photo: { x: 620, y: 604, w: 200.306, h: 220.78 } satisfies Box,
   postcard: { x: 1060, y: 825.474, w: 329.338, h: 200.8, m: [0.84, -0.542, 0.542, 0.84] } satisfies Box,
-  sign: { x: 363, y: 381, w: 713.097, h: 255 } satisfies Box,
 };
 
 const mobileBoxes = {
   title: { x: 15, y: 150, w: 360, h: 157 } satisfies Box,
   photo: { x: 128, y: 330, w: 134, h: 148 } satisfies Box,
   postcard: { x: 205, y: 800, w: 172, h: 105, m: [0.84, -0.542, 0.542, 0.84] } satisfies Box,
-  sign: { x: 20, y: 330, w: 350, h: 125 } satisfies Box,
 };
 
 const stamps: { id: StampId; src: "/assets/home/stamp-product-design.webp" | "/assets/home/stamp-branding.webp" | "/assets/home/stamp-about-me.webp"; path: string; box: Box; mobile: Box }[] = [
@@ -99,6 +97,18 @@ export function HomeExperience({ lang }: { lang: Locale }) {
   }, []);
 
   useEffect(() => () => window.clearTimeout(timer.current), []);
+
+  // The entrance is a full-screen moment: no page scroll behind it.
+  useEffect(() => {
+    if (phase === "map") return;
+    const root = document.documentElement;
+    const prev = root.style.overflow;
+    root.style.overflow = "hidden";
+    window.scrollTo(0, 0);
+    return () => {
+      root.style.overflow = prev;
+    };
+  }, [phase]);
 
   const enter = useCallback(() => {
     try {
@@ -190,17 +200,18 @@ export function HomeExperience({ lang }: { lang: Locale }) {
         );
       })}
 
-      {/* ── Entrance layer ───────────────────────────────────────── */}
+      {/* ── Entrance layer: full-screen glass blocks + sign (no navbar/footer) ── */}
       {phase !== "map" ? (
-        <div className={styles.entrance} aria-hidden={phase === "entering"}>
-          {DOTS.map(([x, y], i) => (
-            <span
-              key={i}
-              className={`${stage.item} ${styles.dot}`}
-              style={place(FRAME, { x, y, w: 24, h: 24 }, { frame: MOBILE, box: { x: (x / 1440) * 390, y: (y / 1024) * 900, w: 12, h: 12 } })}
-            />
-          ))}
-          <div className={styles.blocks} aria-hidden="true">
+        <div className={styles.entrance} data-entrance-open="" aria-hidden={phase === "entering"}>
+          {/* 1440×1024 box scaled to cover the viewport, like the Figma frame */}
+          <div className={styles.cover} aria-hidden="true">
+            {DOTS.map(([x, y], i) => (
+              <span
+                key={i}
+                className={styles.dot}
+                style={{ left: `${(x / 1440) * 100}%`, top: `${(y / 1024) * 100}%` }}
+              />
+            ))}
             {ROWS.map(([y, h], r) =>
               COLS.map((x, c) => (
                 <span
@@ -224,7 +235,7 @@ export function HomeExperience({ lang }: { lang: Locale }) {
               )),
             )}
           </div>
-          <div className={`${stage.item} ${styles.signSlot}`} style={sm(boxes.sign, mobileBoxes.sign)}>
+          <div className={styles.signSlot}>
             <EntranceSign label={homeCopy.sign[lang]} ariaLabel={homeCopy.enter[lang]} onEnter={enter} disabled={phase !== "entrance"} />
           </div>
         </div>

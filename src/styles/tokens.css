@@ -154,15 +154,9 @@
   --cn-font-num: var(--font-mono);
 }
 
-/* Between 900 and 1180px the language switch sits on its own row above the nav */
+/* Extra top offset for content when the header grows (kept for future use; the compact navbar fits on one row ≥900px) */
 :root {
   --nav-shift: 0px;
-}
-
-@media (min-width: 900px) and (max-width: 1180px) {
-  :root {
-    --nav-shift: 44px;
-  }
 }
 
 @media (prefers-reduced-motion: reduce) {

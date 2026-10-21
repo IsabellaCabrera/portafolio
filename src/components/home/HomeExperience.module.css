@@ -173,22 +173,31 @@
   transform: scale(1.18);
 }
 
-/* ── entrance layer ─────────────────────────────────────────── */
+/* ── entrance layer: fixed, full screen, above navbar and footer ── */
 .entrance {
-  position: absolute;
+  position: fixed;
   inset: 0;
-  z-index: 20;
+  z-index: 100;
+  overflow: hidden;
+}
+
+/* Figma 1440×1024 frame, scaled to cover any viewport */
+.cover {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: max(100vw, calc(100dvh * 1440 / 1024));
+  aspect-ratio: 1440 / 1024;
+  transform: translate(-50%, -50%);
 }
 
 .dot {
+  position: absolute;
+  width: calc(24 / 1440 * 100%);
+  aspect-ratio: 1;
   border-radius: 50%;
   background: var(--color-text-ink);
   transition: opacity var(--dur-slow) var(--ease-out);
-}
-
-.blocks {
-  position: absolute;
-  inset: 0;
 }
 
 .block {
@@ -200,7 +209,14 @@
     filter 700ms var(--ease-out) var(--d);
 }
 
+/* Sign: centered, always fully visible (713×255 in Figma) */
 .signSlot {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: min(713px, 88vw, calc(88dvh * 713 / 255));
+  aspect-ratio: 713 / 255;
+  transform: translate(-50%, -50%);
   z-index: 3;
   transition:
     transform 700ms var(--ease-in-out),
@@ -249,7 +265,7 @@
 }
 
 .stage[data-phase="entering"] .signSlot {
-  transform: translateY(40%) rotate(6deg) scale(0.9);
+  transform: translate(-50%, -10%) rotate(6deg) scale(0.9);
   opacity: 0;
 }
 
