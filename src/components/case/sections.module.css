@@ -114,7 +114,6 @@
 
 .wireImage {
   position: relative;
-  z-index: 1;
   width: calc(var(--w) * var(--u));
   margin: calc(var(--g) * var(--u)) 0 0 calc((var(--x) - 120) * var(--u));
 }
@@ -126,7 +125,11 @@
 
 /* ── Behance band ───────────────────────────────────────────── */
 .band {
+  /* Figma "BG / Behance band": sits on top of the image above it, blurring what's behind */
   position: relative;
+  z-index: 2;
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
   margin-top: calc(var(--ov) * -1 * var(--u));
   padding-top: calc(var(--tt) * var(--u));
   min-height: calc(587 * var(--u));

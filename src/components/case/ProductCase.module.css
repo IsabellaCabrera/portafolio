@@ -15,7 +15,6 @@
 /* Lumi "inside" section: Figma frame 1440 × 1366 (y 3168 → 4534) */
 .lumi {
   position: relative;
-  z-index: 1;
   max-width: var(--layout-page-width);
   margin-inline: auto;
   aspect-ratio: 1440 / 1366;
