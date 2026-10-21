@@ -8,6 +8,7 @@ import { caseClusters } from "@/content/stampLayouts";
 import { categoryCopy, worksCopy } from "@/content/works";
 import { ProjectStamps } from "@/components/works/ProjectStamps";
 import { CaseHeader } from "./CaseHeader";
+import { StickerPile } from "./StickerPile";
 import styles from "./EntoCase.module.css";
 
 type R = { x: number; y: number; w: number; h: number };
@@ -33,14 +34,6 @@ const stickers: { src: AssetPath; r: R }[] = [
   { src: "/assets/cases/ento/sticker-champinon-2.webp", r: { x: 1130, y: 1508, w: 271, h: 256 } },
   { src: "/assets/cases/ento/sticker-albahca.webp", r: { x: 877, y: 1301, w: 392, h: 392 } },
   { src: "/assets/cases/ento/sticker-midcentury.webp", r: { x: 44, y: 1476, w: 380, h: 117 } },
-];
-
-/* "ENTO / FOOD / READY TO EAT" pattern rows (Work Sans SemiBold 113.6, #d1d1d1) */
-const pattern: { word: 0 | 1 | 2; x: number; y: number; w: number }[] = [
-  { word: 0, x: -10, y: 1451, w: 310 }, { word: 1, x: 332, y: 1451, w: 319 }, { word: 2, x: 673, y: 1451, w: 801 },
-  { word: 2, x: -4, y: 1557, w: 801 }, { word: 0, x: 840, y: 1557, w: 310 }, { word: 1, x: 1187, y: 1557, w: 319 },
-  { word: 1, x: -12, y: 1655, w: 319 }, { word: 2, x: 338, y: 1655, w: 801 }, { word: 0, x: 1168, y: 1655, w: 310 },
-  { word: 2, x: -13, y: 1760, w: 801 }, { word: 0, x: 831, y: 1760, w: 310 }, { word: 1, x: 1178, y: 1760, w: 319 },
 ];
 
 /* Illustrations grid — Figma y 4361 → 5160, cells 395 × 395 between hairlines */
@@ -100,24 +93,15 @@ export function EntoCase({ lang }: { lang: Locale }) {
 
       <ProjectStamps lang={lang} layout={caseClusters.ento!} label={worksCopy.stampsLabel[lang]} className={styles.cluster} />
 
-      {/* Sticker pile over the ENTO FOOD READY TO EAT pattern */}
-      <section className={styles.stickers} aria-label={e.stickersAlt[lang]} style={{ aspectRatio: `1440 / ${STICKER_H}` }}>
-        <div className={styles.pattern} aria-hidden="true">
-          {pattern.map((p, i) => (
-            <span key={i} className={styles.patternWord} style={pct({ x: p.x, y: p.y - STICKER_Y, w: p.w, h: 133 }, 1440, STICKER_H)}>
-              {e.pattern.en[p.word]}
-            </span>
-          ))}
-        </div>
-        {stickers.map((s) => {
-          const img = asset(s.src);
-          return (
-            <span key={s.src} className={styles.sticker} style={pct({ ...s.r, y: s.r.y - STICKER_Y }, 1440, STICKER_H)}>
-              <Image src={img.src} width={img.width} height={img.height} alt="" sizes="(max-width: 767px) 30vw, 480px" />
-            </span>
-          );
-        })}
-      </section>
+      {/* Sticker pile over the ENTO FOOD READY TO EAT pattern (full width, draggable) */}
+      <StickerPile
+        frame={{ w: 1440, h: STICKER_H }}
+        pattern={asset("/assets/cases/ento/pattern.webp")}
+        patternY={1451 - STICKER_Y}
+        stickers={stickers.map((st) => ({ img: asset(st.src), x: st.r.x, y: st.r.y - STICKER_Y, w: st.r.w, h: st.r.h }))}
+        label={e.stickersAlt[lang]}
+        hint={e.dragHint[lang]}
+      />
 
       {/* Brand Concept & Inspiration */}
       <section className={styles.concept}>

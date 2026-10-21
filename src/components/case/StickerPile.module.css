@@ -1,0 +1,53 @@
+/* Full bleed: the pile scales with the viewport width (Figma 1440 × 740) */
+.pile {
+  position: relative;
+  width: 100%;
+  margin-top: calc(60 * var(--u));
+  overflow: hidden;
+}
+
+.pattern {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: auto;
+  pointer-events: none;
+  user-select: none;
+}
+
+.sticker {
+  position: absolute;
+  cursor: grab;
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.sticker:active {
+  cursor: grabbing;
+}
+
+.sticker img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  pointer-events: none;
+  -webkit-user-drag: none;
+}
+
+.hint {
+  position: absolute;
+  right: max(16px, calc(124 * var(--u)));
+  bottom: 8px;
+  font-size: 13px;
+  font-weight: 300;
+  color: var(--color-text-ink);
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+@media (max-width: 899px) {
+  .pile {
+    margin-top: 24px;
+  }
+}
