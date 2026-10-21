@@ -152,8 +152,8 @@ export function HomeExperience({ lang }: { lang: Locale }) {
       {/* "welcome to my creative city." */}
       <div className={`${stage.item} ${styles.title} ${styles.blurrable}`} style={sm(boxes.title, mobileBoxes.title)}>
         <h1 className={styles.titleInner}>
-          <span className={styles.welcome}>{homeCopy.welcome[lang]}</span>
-          <span className={styles.toMy}>{homeCopy.toMy[lang]}</span>
+          <span className={styles.welcome}>{homeCopy.welcome[lang]}</span>{" "}
+          <span className={styles.toMy}>{homeCopy.toMy[lang]}</span>{" "}
           <span className={styles.city} data-lang={lang}>
             {homeCopy.city[lang]}
           </span>
