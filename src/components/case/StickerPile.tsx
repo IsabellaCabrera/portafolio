@@ -4,6 +4,7 @@ import Image from "next/image";
 import { motion, useReducedMotion } from "framer-motion";
 import { useRef, useState } from "react";
 import type { AssetMeta } from "@/content/assets.generated";
+import { DragHint } from "@/components/ui/DragHint";
 import styles from "./StickerPile.module.css";
 
 export type Sticker = { img: AssetMeta; x: number; y: number; w: number; h: number };
@@ -37,19 +38,9 @@ export function StickerPile({
 
   return (
     <div className={styles.wrap}>
-      <p className={styles.hint} data-hidden={dragged || undefined} aria-hidden="true">
-        <svg viewBox="0 0 24 24" width="22" height="22" className={styles.hand}>
-          <path
-            d="M9 11V5.5a1.5 1.5 0 0 1 3 0V10m0-.5V4a1.5 1.5 0 0 1 3 0v6m0-3.5a1.5 1.5 0 0 1 3 0V13c0 4-2.5 7-6.5 7-2.6 0-4.2-1.2-5.6-3.3L4.1 13.2a1.5 1.5 0 0 1 2.4-1.8L9 14"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="1.8"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-        </svg>
+      <DragHint hidden={dragged} className={styles.hint}>
         {hint}
-      </p>
+      </DragHint>
     <section ref={ref} className={styles.pile} style={{ aspectRatio: `${frame.w} / ${frame.h}` }} aria-label={label}>
       <Image
         src={pattern.src}

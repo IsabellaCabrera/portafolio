@@ -4,7 +4,7 @@ import type { CategorySlug } from "./projects";
 /** Copy from Figma "Works / Lobby", "Category / Product Design", "Category / Branding" (+ Spanish). */
 export const worksCopy = {
   title: { en: "WORKS", es: "PROYECTOS" } satisfies T,
-  beetleHint: { en: "Drag to rotate", es: "Arrastra para girar" } satisfies T,
+  beetleHint: { en: "Drag the beetle to rotate it", es: "Arrastra el escarabajo para girarlo" } satisfies T,
   stampsLabel: { en: "Projects", es: "Proyectos" } satisfies T,
 };
 

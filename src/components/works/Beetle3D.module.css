@@ -35,14 +35,20 @@
 }
 
 .hint {
+  /* above the beetle, on the right, so the interaction isn't missed */
   position: absolute;
-  left: 50%;
-  bottom: 4%;
-  transform: translateX(-50%);
-  font-size: 13px;
-  font-weight: 300;
-  color: var(--color-text-ink);
-  white-space: nowrap;
-  pointer-events: none;
-  opacity: 0.75;
+  top: 0;
+  right: 0;
+  z-index: 3;
+}
+
+@media (max-width: 899px) {
+  .hint {
+    right: 50%;
+    transform: translateX(50%);
+  }
+
+  .hint[data-hidden] {
+    transform: translate(50%, -8px);
+  }
 }

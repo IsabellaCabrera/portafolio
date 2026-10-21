@@ -4,6 +4,7 @@ import dynamic from "next/dynamic";
 import Image from "next/image";
 import { useCallback, useEffect, useRef, useState } from "react";
 import type { AssetMeta } from "@/content/assets.generated";
+import { DragHint } from "@/components/ui/DragHint";
 import styles from "./Beetle3D.module.css";
 
 const BeetleCanvas = dynamic(() => import("./BeetleCanvas"), { ssr: false });
@@ -48,6 +49,7 @@ export function Beetle3D({
   const [mount3D, setMount3D] = useState(false);
   const [loaded, setLoaded] = useState(false);
   const [reduced, setReduced] = useState(false);
+  const [touched, setTouched] = useState(false);
 
   useEffect(() => {
     setReduced(window.matchMedia("(prefers-reduced-motion: reduce)").matches);
@@ -82,14 +84,14 @@ export function Beetle3D({
         priority
       />
       {mount3D ? (
-        <div className={styles.canvas}>
+        <div className={styles.canvas} onPointerDown={() => setTouched(true)}>
           <BeetleCanvas url={model} yaw={yaw} autoRotate={!reduced} onLoaded={onLoaded} />
         </div>
       ) : null}
       {loaded ? (
-        <p className={styles.hint} aria-hidden="true">
+        <DragHint hidden={touched} className={styles.hint}>
           {hint}
-        </p>
+        </DragHint>
       ) : null}
     </div>
   );
