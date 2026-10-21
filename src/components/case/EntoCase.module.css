@@ -98,13 +98,16 @@
   object-fit: cover;
 }
 
+/* Full bleed: Figma places it at x=-21, 1467 wide (wider than the 1440 frame) */
 .construction {
-  max-width: var(--layout-page-width);
-  margin: calc(134 * var(--u)) auto 0;
+  width: 100%;
+  margin-top: calc(134 * var(--u));
+  overflow: hidden;
 }
 
 .construction img {
-  width: calc(1467 * var(--u));
+  display: block;
+  width: calc(100% + 42 * var(--u));
   max-width: none;
   height: auto;
   margin-left: calc(-21 * var(--u));
