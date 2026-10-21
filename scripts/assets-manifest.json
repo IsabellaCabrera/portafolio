@@ -1,0 +1,350 @@
+{
+ "/assets/home/photo-isa.webp": {
+  "w": 401,
+  "h": 442,
+  "alpha": true,
+  "source": "02-mapa/Foto-isa-home..png"
+ },
+ "/assets/home/postcard.webp": {
+  "w": 659,
+  "h": 402,
+  "alpha": true,
+  "source": "02-mapa/Postcard.png"
+ },
+ "/assets/home/stamp-about-me.webp": {
+  "w": 310,
+  "h": 414,
+  "alpha": true,
+  "source": "02-mapa/stamp-about-me.png"
+ },
+ "/assets/home/stamp-branding.webp": {
+  "w": 444,
+  "h": 320,
+  "alpha": true,
+  "source": "02-mapa/stamp-branding.png"
+ },
+ "/assets/home/stamp-product-design.webp": {
+  "w": 441,
+  "h": 456,
+  "alpha": true,
+  "source": "02-mapa/stamp-product-design.png"
+ },
+ "/assets/entrance/blocks.webp": {
+  "w": 2880,
+  "h": 2048,
+  "alpha": true,
+  "source": "01-entrada/bloques.png"
+ },
+ "/assets/entrance/sign.webp": {
+  "w": 1427,
+  "h": 510,
+  "alpha": true,
+  "source": "01-entrada/letrero.png"
+ },
+ "/assets/about/sign-post.webp": {
+  "w": 900,
+  "h": 1646,
+  "alpha": true,
+  "source": "03-about/Poste-skillsets.png"
+ },
+ "/assets/works/beetle-product-design.webp": {
+  "w": 1343,
+  "h": 1400,
+  "alpha": true,
+  "source": "04-categorias/product-design/hero-beetle-product-design-.png"
+ },
+ "/assets/works/beetle-branding.webp": {
+  "w": 1190,
+  "h": 1186,
+  "alpha": true,
+  "source": "04-categorias/branding/hero-beetle-branding.png"
+ },
+ "/assets/stamps/amphibia.webp": {
+  "w": 743,
+  "h": 913,
+  "alpha": true,
+  "source": "04-categorias/estampillas/stamp-amphibia.png"
+ },
+ "/assets/stamps/bipbip.webp": {
+  "w": 735,
+  "h": 899,
+  "alpha": true,
+  "source": "04-categorias/estampillas/stamp-bipbip.png"
+ },
+ "/assets/stamps/ento.webp": {
+  "w": 743,
+  "h": 913,
+  "alpha": true,
+  "source": "04-categorias/estampillas/stamp-ento.png"
+ },
+ "/assets/stamps/linglink.webp": {
+  "w": 726,
+  "h": 892,
+  "alpha": true,
+  "source": "04-categorias/estampillas/stamp-linglink.png"
+ },
+ "/assets/stamps/lumi.webp": {
+  "w": 672,
+  "h": 793,
+  "alpha": true,
+  "source": "04-categorias/estampillas/stamp-lumi.png"
+ },
+ "/assets/footer/postmark.webp": {
+  "w": 824,
+  "h": 314,
+  "alpha": true,
+  "source": "06-footer/Postage.png"
+ },
+ "/assets/cases/bipbip/hero.webp": {
+  "w": 552,
+  "h": 552,
+  "alpha": true,
+  "source": "05-proyectos/Case  Product Design  Bipbip/Bipbip hero group.png"
+ },
+ "/assets/cases/bipbip/problem-solution.webp": {
+  "w": 1476,
+  "h": 935,
+  "alpha": true,
+  "source": "05-proyectos/Case  Product Design  Bipbip/problem and solution photo.png"
+ },
+ "/assets/cases/bipbip/wireframes.webp": {
+  "w": 2368,
+  "h": 1938,
+  "alpha": true,
+  "source": "05-proyectos/Case  Product Design  Bipbip/Bibbip wireframes.png"
+ },
+ "/assets/cases/lumi/hero.webp": {
+  "w": 869,
+  "h": 971,
+  "alpha": true,
+  "source": "05-proyectos/Case  Product Design  Lumi/lumi-shell.png"
+ },
+ "/assets/cases/lumi/screens.webp": {
+  "w": 1433,
+  "h": 1930,
+  "alpha": true,
+  "source": "05-proyectos/Case  Product Design  Lumi/Lumi screens.png"
+ },
+ "/assets/cases/lumi/light-emitting.webp": {
+  "w": 1483,
+  "h": 1483,
+  "alpha": true,
+  "source": "05-proyectos/Case  Product Design  Lumi/Lumi light-emitting.png"
+ },
+ "/assets/cases/lumi/hardware.webp": {
+  "w": 2058,
+  "h": 2400,
+  "alpha": true,
+  "source": "05-proyectos/Case  Product Design  Lumi/Lumi hardware (inside).png"
+ },
+ "/assets/cases/linglink/hero.webp": {
+  "w": 700,
+  "h": 370,
+  "alpha": true,
+  "source": "05-proyectos/Case  Product Design  Linglink/Linglink.png"
+ },
+ "/assets/cases/linglink/screens.webp": {
+  "w": 1480,
+  "h": 924,
+  "alpha": true,
+  "source": "05-proyectos/Case  Product Design  Linglink/LINGLINK SCREENS.png"
+ },
+ "/assets/cases/linglink/wireframes.webp": {
+  "w": 2380,
+  "h": 2029,
+  "alpha": true,
+  "source": "05-proyectos/Case  Product Design  Linglink/LingLink wireframes.png"
+ },
+ "/assets/cases/amphibia/isotype.webp": {
+  "w": 314,
+  "h": 188,
+  "alpha": true,
+  "source": "05-proyectos/Case  Branding  Amphibia/amphibia-isotype-header.png"
+ },
+ "/assets/cases/amphibia/wordmark-xl.webp": {
+  "w": 1946,
+  "h": 382,
+  "alpha": true,
+  "source": "05-proyectos/Case  Branding  Amphibia/Amphibia - Wordmark XL.png"
+ },
+ "/assets/cases/amphibia/bento.webp": {
+  "w": 2400,
+  "h": 2180,
+  "alpha": true,
+  "source": "05-proyectos/Case  Branding  Amphibia/Amphibia bento.png"
+ },
+ "/assets/cases/amphibia/full-logo.webp": {
+  "w": 850,
+  "h": 397,
+  "alpha": true,
+  "source": "05-proyectos/Case  Branding  Amphibia/FULL LOGO.png"
+ },
+ "/assets/cases/ento/composition.webp": {
+  "w": 2528,
+  "h": 1056,
+  "alpha": true,
+  "source": "05-proyectos/Case  Branding  ENTO/composition.png"
+ },
+ "/assets/cases/ento/logo-construction.webp": {
+  "w": 2880,
+  "h": 1544,
+  "alpha": false,
+  "source": "05-proyectos/Case  Branding  ENTO/Logo construction.png"
+ },
+ "/assets/cases/ento/pattern.webp": {
+  "w": 2880,
+  "h": 884,
+  "alpha": true,
+  "source": "05-proyectos/Case  Branding  ENTO/Pattern.png"
+ },
+ "/assets/cases/ento/albahaca.webp": {
+  "w": 803,
+  "h": 803,
+  "alpha": true,
+  "source": "05-proyectos/Case  Branding  ENTO/Albahca 1.png"
+ },
+ "/assets/cases/ento/tocineta.webp": {
+  "w": 624,
+  "h": 435,
+  "alpha": true,
+  "source": "05-proyectos/Case  Branding  ENTO/Tocineta 2 [Vectorized] 1.png"
+ },
+ "/assets/cases/ento/champinon.webp": {
+  "w": 595,
+  "h": 513,
+  "alpha": true,
+  "source": "05-proyectos/Case  Branding  ENTO/champinon 2 [Vectorized] 1.png"
+ },
+ "/assets/cases/ento/pata-de-jamon.webp": {
+  "w": 1045,
+  "h": 1000,
+  "alpha": true,
+  "source": "05-proyectos/Case  Branding  ENTO/pata de jamon 1 [Vectorized] 1.png"
+ },
+ "/assets/cases/ento/tomate.webp": {
+  "w": 543,
+  "h": 551,
+  "alpha": true,
+  "source": "05-proyectos/Case  Branding  ENTO/tomate Azul 1.png"
+ },
+ "/assets/cases/ento/illustration-vectorized.webp": {
+  "w": 750,
+  "h": 769,
+  "alpha": true,
+  "source": "05-proyectos/Case  Branding  ENTO/ento-illustration-vectorized.png"
+ },
+ "/assets/cases/ento/process-01.webp": {
+  "w": 756,
+  "h": 914,
+  "alpha": false,
+  "source": "05-proyectos/Case  Branding  ENTO/Illustration 01.png"
+ },
+ "/assets/cases/ento/process-02.webp": {
+  "w": 756,
+  "h": 914,
+  "alpha": false,
+  "source": "05-proyectos/Case  Branding  ENTO/Illustration 02.png"
+ },
+ "/assets/cases/ento/process-03.webp": {
+  "w": 756,
+  "h": 914,
+  "alpha": false,
+  "source": "05-proyectos/Case  Branding  ENTO/Illustration 03.png"
+ },
+ "/assets/cases/ento/flavor-01.webp": {
+  "w": 682,
+  "h": 992,
+  "alpha": false,
+  "source": "05-proyectos/Case  Branding  ENTO/Flavor 01.png"
+ },
+ "/assets/cases/ento/flavor-04.webp": {
+  "w": 732,
+  "h": 992,
+  "alpha": false,
+  "source": "05-proyectos/Case  Branding  ENTO/Flavor 04.png"
+ },
+ "/assets/cases/ento/flavor-06.webp": {
+  "w": 724,
+  "h": 992,
+  "alpha": false,
+  "source": "05-proyectos/Case  Branding  ENTO/Flavor 06.png"
+ },
+ "/assets/cases/ento/flavor-07.webp": {
+  "w": 740,
+  "h": 992,
+  "alpha": false,
+  "source": "05-proyectos/Case  Branding  ENTO/Flavor 07.png"
+ },
+ "/assets/cases/ento/sticker-albahca.webp": {
+  "w": 784,
+  "h": 784,
+  "alpha": true,
+  "source": "05-proyectos/Case  Branding  ENTO/ento-die-cut-albahca.png"
+ },
+ "/assets/cases/ento/sticker-champinon-2.webp": {
+  "w": 543,
+  "h": 513,
+  "alpha": true,
+  "source": "05-proyectos/Case  Branding  ENTO/ento-die-cut-champinon-2.png"
+ },
+ "/assets/cases/ento/sticker-flat-art.webp": {
+  "w": 747,
+  "h": 547,
+  "alpha": true,
+  "source": "05-proyectos/Case  Branding  ENTO/ento-die-cut-flat-art.png"
+ },
+ "/assets/cases/ento/sticker-geometric.webp": {
+  "w": 795,
+  "h": 591,
+  "alpha": true,
+  "source": "05-proyectos/Case  Branding  ENTO/ento-die-cut-geometric.png"
+ },
+ "/assets/cases/ento/sticker-group.webp": {
+  "w": 645,
+  "h": 639,
+  "alpha": true,
+  "source": "05-proyectos/Case  Branding  ENTO/ento-die-cut-group.png"
+ },
+ "/assets/cases/ento/sticker-high-contrast.webp": {
+  "w": 916,
+  "h": 528,
+  "alpha": true,
+  "source": "05-proyectos/Case  Branding  ENTO/ento-die-cut-high-contrast.png"
+ },
+ "/assets/cases/ento/sticker-midcentury.webp": {
+  "w": 760,
+  "h": 234,
+  "alpha": true,
+  "source": "05-proyectos/Case  Branding  ENTO/ento-die-cut-midcentury.png"
+ },
+ "/assets/cases/ento/sticker-pata-de-jamon-1.webp": {
+  "w": 804,
+  "h": 765,
+  "alpha": true,
+  "source": "05-proyectos/Case  Branding  ENTO/ento-die-cut-pata-de-jamon-1.png"
+ },
+ "/assets/cases/ento/sticker-retail.webp": {
+  "w": 528,
+  "h": 420,
+  "alpha": true,
+  "source": "05-proyectos/Case  Branding  ENTO/ento-die-cut-retail.png"
+ },
+ "/assets/cases/ento/sticker-tocineta-2.webp": {
+  "w": 611,
+  "h": 540,
+  "alpha": true,
+  "source": "05-proyectos/Case  Branding  ENTO/ento-die-cut-tocineta-2.png"
+ },
+ "/assets/cases/ento/sticker-vacuum-sealed.webp": {
+  "w": 963,
+  "h": 506,
+  "alpha": true,
+  "source": "05-proyectos/Case  Branding  ENTO/ento-die-cut-vacuum-sealed.png"
+ },
+ "/assets/home/map.webp": {
+  "w": 2880,
+  "h": 2048,
+  "alpha": false,
+  "source": "chat upload (map background)"
+ }
+}

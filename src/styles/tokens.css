@@ -1,0 +1,156 @@
+/*
+ * Design tokens — extracted from Figma file "Portafolio", page "Web".
+ * Source of truth: frame "UI Kit / 01 Foundations" (local variables "Colors",
+ * "Spacing & Radius" and the 16 local text styles), plus values used directly
+ * in the frames (effects, strokes, secondary colors).
+ *
+ * Desktop frames are 1440px wide. Type sizes below are the Figma values;
+ * fluid clamps only shrink them below 1440 — they never exceed the Figma size.
+ */
+
+:root {
+  color-scheme: light;
+
+  /* ── Color · Figma variables (collection "Colors") ───────────────────── */
+  --color-brand-olive: #5e5b26;      /* color/brand/olive */
+  --color-brand-teal: #008e77;       /* color/brand/teal */
+  --color-brand-teal-dark: #017966;  /* color/brand/teal-dark */
+  --color-text-ink: #2b2904;         /* color/text/ink */
+  --color-text-muted: #bfbfbf;       /* color/text/muted */
+  --color-bg-page: #f3f2f2;          /* color/bg/page */
+  --color-bg-footer: #f8f4e8;        /* color/bg/footer (also Home frames bg) */
+  --color-bg-white: #ffffff;         /* color/bg/white */
+
+  /* ── Color · used in frames, not yet variables ───────────────────────── */
+  --color-bg-about: #f5f3f3;         /* About / 0x frames bg */
+  --color-panel-about: #e8e8e8;      /* About "Panel / About card" (radius 85) */
+  --color-postcard: #f5e8d8;         /* Footer postcard / home postcard paper */
+  --color-postcard-line: #5e5b26;
+  --color-chip-line: #008e77;
+  --color-rule-soft: #bebb9d;        /* footer bottom bar */
+  --color-problem: #b40000;          /* Case "Problem" heading */
+  --color-sign-panel: #1d4a26;       /* Entrance sign green */
+  --color-white-soft: #fafafa;
+
+  /* ── Typography · families (loaded with next/font, see src/lib/fonts.ts) ─ */
+  --font-sans: var(--ff-work-sans), "Work Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-script: var(--ff-homemade-apple), "Homemade Apple", "Segoe Script", cursive;
+  --font-label: var(--ff-afacad), "Afacad", "Work Sans", system-ui, sans-serif;
+  --font-mono: var(--ff-jetbrains-mono), "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+
+  /* ── Typography · text styles (name = Figma text style) ──────────────── */
+  /* Display/Title  — Work Sans Black 50 */
+  --type-display-size: clamp(2.25rem, 1.3rem + 2.1vw, 3.125rem);
+  --type-display-weight: 900;
+  /* Heading/H2 — Work Sans SemiBold 50 */
+  --type-h2-size: clamp(2rem, 1.2rem + 2.1vw, 3.125rem);
+  --type-h2-weight: 600;
+  /* Heading/H3 — Work Sans SemiBold 25 / 117.5% / -2% */
+  --type-h3-size: clamp(1.25rem, 1.05rem + 0.45vw, 1.5625rem);
+  --type-h3-weight: 600;
+  --type-h3-leading: 1.175;
+  --type-h3-tracking: -0.02em;
+  /* Label/Meta — Work Sans Medium 25 */
+  --type-meta-size: clamp(1.125rem, 0.95rem + 0.45vw, 1.5625rem);
+  --type-meta-weight: 500;
+  /* Body/L — Work Sans Regular 20 / 117.5% / -2% */
+  --type-body-l-size: clamp(1.0625rem, 0.98rem + 0.25vw, 1.25rem);
+  --type-body-l-leading: 1.175;
+  --type-body-l-tracking: -0.02em;
+  /* Body/M — Work Sans Regular 18 / 150% */
+  --type-body-m-size: 1.125rem;
+  --type-body-m-leading: 1.5;
+  /* Body/S — Work Sans Regular 15 */
+  --type-body-s-size: 0.9375rem;
+  /* Nav/Link — Work Sans Regular 27.63 */
+  --type-nav-size: clamp(1.125rem, 0.75rem + 0.95vw, 1.727rem);
+  /* Link/Contact — Work Sans Medium 18 */
+  --type-link-size: 1.125rem;
+  --type-link-weight: 500;
+  /* Button/Label — Work Sans SemiBold 20 */
+  --type-button-size: clamp(1.0625rem, 0.98rem + 0.25vw, 1.25rem);
+  --type-button-weight: 600;
+  /* Chip/Label — Afacad Medium 18 */
+  --type-chip-size: 1.125rem;
+  /* Overline/Label — Afacad Medium 14 / 6% / UPPER */
+  --type-overline-size: 0.875rem;
+  --type-overline-tracking: 0.06em;
+  /* Script/L — Homemade Apple 34 · Script/S — Homemade Apple 20 */
+  --type-script-l-size: clamp(1.625rem, 1.3rem + 0.9vw, 2.125rem);
+  --type-script-s-size: 1.25rem;
+  /* Footer/Headline — Work Sans Black 54 / 92% */
+  --type-footer-headline-size: clamp(2.25rem, 1.4rem + 2.3vw, 3.375rem);
+  --type-footer-headline-leading: 0.92;
+  /* Stamp/Postmark — Work Sans SemiBold 13 / 120% / 8% */
+  --type-postmark-size: 0.8125rem;
+  --type-postmark-leading: 1.2;
+  --type-postmark-tracking: 0.08em;
+
+  /* Case pages (values used directly in Case / … frames) */
+  --type-case-section-size: clamp(2rem, 1.2rem + 2.1vw, 3.125rem);   /* Work Sans Medium 50 */
+  --type-case-card-title-size: clamp(1.375rem, 1.1rem + 0.7vw, 1.7rem); /* Work Sans Bold 27.2 */
+  --type-case-card-body-size: 0.85rem;                                  /* Work Sans 13.6 / 22.7px */
+  --type-case-card-body-leading: 1.67;
+
+  /* ── Spacing · Figma variables (collection "Spacing & Radius") ───────── */
+  --space-xs: 4px;     /* spacing/xs */
+  --space-sm: 8px;     /* spacing/sm */
+  --space-md: 16px;    /* spacing/md */
+  --space-lg: 24px;    /* spacing/lg */
+  --space-xl: 48px;    /* spacing/xl */
+  --space-2xl: 56px;   /* spacing/2xl */
+  --space-chip-x: 19px;      /* spacing/chip-x */
+  --space-chip-y: 10px;      /* spacing/chip-y */
+  --space-button-left: 28px; /* spacing/button-left */
+  --space-button-right: 24px;/* spacing/button-right */
+  --space-button-y: 16px;    /* spacing/button-y */
+
+  /* ── Layout ──────────────────────────────────────────────────────────── */
+  --layout-page-width: 1440px;   /* layout/page-width */
+  --layout-content-margin: 128px;/* layout/content-margin */
+  /* Fluid side gutter: 128px at 1440, never below 16px (+ safe-area). */
+  --gutter: max(16px, min(var(--layout-content-margin), 8.9vw));
+  --nav-height: 98px;            /* navbar sits at y=59, 39px tall */
+
+  /* ── Radius ──────────────────────────────────────────────────────────── */
+  --radius-pill: 60px;           /* radius/pill — chips, email button */
+  --radius-panel: 85px;          /* About card */
+  --radius-sign: 43px;           /* Entrance sign */
+  --radius-tile: 19px;           /* Entrance glass blocks (inner 14) */
+  --radius-card: 12px;
+
+  /* ── Strokes ─────────────────────────────────────────────────────────── */
+  --stroke-hairline: 1px;
+  --stroke-chip: 1px solid var(--color-chip-line);
+  --stroke-postcard: 1.5px solid var(--color-postcard-line);
+  --stroke-dashed: 1px dashed var(--color-brand-olive); /* About dividers 6/6 */
+
+  /* ── Effects ─────────────────────────────────────────────────────────── */
+  --shadow-stamp: 0 4px 8px rgb(0 0 0 / 0.15);
+  --shadow-postcard: 0 14px 30px rgb(43 41 4 / 0.12);
+  --shadow-chip-tag: 1.2px 4.8px 5px rgb(0 0 0 / 0.19);
+  --blur-focus: 10.3px;          /* Home / 03 Active — layer blur on the rest */
+
+  /* ── Motion ──────────────────────────────────────────────────────────── */
+  --ease-out: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-fast: 180ms;
+  --dur-base: 350ms;
+  --dur-slow: 600ms;
+
+  /* ── Circular Experience Wheel (component tokens, mapped to globals) ─── */
+  --cn-bg: transparent;
+  --cn-ink: var(--color-text-ink);
+  --cn-ink-soft: #8a8a80;        /* inactive marker gray (Figma reference: mid-gray) */
+  --cn-line: var(--color-text-muted);
+  --cn-font-ui: var(--font-sans);
+  --cn-font-num: var(--font-mono);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --dur-fast: 0ms;
+    --dur-base: 0ms;
+    --dur-slow: 0ms;
+  }
+}
