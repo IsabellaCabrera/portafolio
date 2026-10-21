@@ -375,6 +375,7 @@ export const entoCopy = {
     basil: { en: "Basil", es: "Albahaca" },
     character: { en: "Warrior", es: "Guerrero" },
   } satisfies Record<string, T>,
+  illustrationSubtitle: { en: "Faceted vector illustration", es: "Ilustración vectorial facetada" } satisfies T,
   processTitle: { en: "Design Process", es: "Proceso de diseño" } satisfies T,
   process: [
     {

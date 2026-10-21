@@ -1,0 +1,224 @@
+.grid {
+  --x: 50%;
+  --y: 50%;
+  --r: 260px;
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(var(--cols, 3), minmax(0, 1fr));
+  gap: clamp(20px, calc(40 * var(--u)), 40px);
+  width: 100%;
+  max-width: calc(1120 * var(--u));
+  margin-inline: auto;
+  padding: clamp(16px, calc(32 * var(--u)), 32px) 0;
+}
+
+/* Sticker-like card: thick white border, soft shadow, slight tilt */
+.card {
+  --tilt: 0deg;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  overflow: hidden;
+  border: clamp(6px, calc(10 * var(--u)), 10px) solid #fff;
+  border-radius: clamp(20px, calc(30 * var(--u)), 30px);
+  background: linear-gradient(160deg, color-mix(in srgb, var(--accent) 26%, #fff), color-mix(in srgb, var(--accent) 8%, #fff));
+  box-shadow:
+    0 1px 2px rgb(0 0 0 / 0.06),
+    0 14px 34px rgb(0 0 0 / 0.12);
+  color: var(--color-text-ink);
+  text-decoration: none;
+  cursor: pointer;
+  transform: rotate(var(--tilt));
+  transition:
+    transform 450ms var(--ease-out),
+    box-shadow 450ms var(--ease-out);
+}
+
+.card:nth-child(3n + 1) {
+  --tilt: -2.4deg;
+}
+.card:nth-child(3n + 2) {
+  --tilt: 1.6deg;
+}
+.card:nth-child(3n) {
+  --tilt: -1deg;
+}
+.card:nth-child(n + 4):nth-child(3n + 1) {
+  --tilt: 2deg;
+}
+.card:nth-child(n + 4):nth-child(3n + 2) {
+  --tilt: -1.8deg;
+}
+.card:nth-child(n + 4):nth-child(3n) {
+  --tilt: 2.6deg;
+}
+
+/* per-card light that follows the cursor */
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background: radial-gradient(circle at var(--mx, 50%) var(--my, 50%), rgb(255 255 255 / 0.35), transparent 70%);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 500ms ease;
+}
+
+.media {
+  display: grid;
+  place-items: center;
+  padding: 12%;
+}
+
+.media img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: transform 450ms var(--ease-out);
+}
+
+.footer {
+  display: grid;
+  gap: 2px;
+  padding: 0 clamp(16px, calc(24 * var(--u)), 24px) clamp(16px, calc(22 * var(--u)), 22px);
+}
+
+.title {
+  font-family: var(--font-label);
+  font-weight: 600;
+  font-size: clamp(18px, calc(24 * var(--u)), 24px);
+  line-height: 1.15;
+}
+
+.subtitle {
+  font-size: clamp(14px, calc(16 * var(--u)), 16px);
+  line-height: 1.3;
+  color: color-mix(in srgb, var(--color-text-ink) 70%, transparent);
+}
+
+/* lit card: above the B/W layers, so it shows fully in colour */
+.card[data-active],
+.card:focus-visible {
+  z-index: 4;
+  transform: rotate(0deg) translateY(-8px) scale(1.03);
+  box-shadow:
+    0 1px 2px rgb(0 0 0 / 0.06),
+    0 22px 44px rgb(0 0 0 / 0.18),
+    0 0 0 2px var(--accent);
+}
+
+.card:focus-visible {
+  outline: 3px solid var(--color-brand-teal-dark);
+  outline-offset: 4px;
+}
+
+.card[data-active] .media img {
+  transform: scale(1.06);
+}
+
+@media (hover: hover) {
+  .card:hover {
+    z-index: 4;
+    transform: rotate(0deg) translateY(-8px) scale(1.03);
+    box-shadow:
+      0 1px 2px rgb(0 0 0 / 0.06),
+      0 22px 44px rgb(0 0 0 / 0.18),
+      0 0 0 2px var(--accent);
+  }
+
+  .card:hover::before {
+    opacity: 1;
+  }
+
+  .card:hover .media img {
+    transform: scale(1.06);
+  }
+}
+
+/* B/W everywhere except a soft circle around the cursor */
+.overlay,
+.fade {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+  backdrop-filter: grayscale(1);
+  -webkit-backdrop-filter: grayscale(1);
+}
+
+.overlay {
+  mask-image: radial-gradient(
+    circle var(--r) at var(--x) var(--y),
+    transparent 0%,
+    transparent 15%,
+    rgb(0 0 0 / 0.1) 30%,
+    rgb(0 0 0 / 0.22) 45%,
+    rgb(0 0 0 / 0.35) 60%,
+    rgb(0 0 0 / 0.5) 75%,
+    rgb(0 0 0 / 0.68) 88%,
+    #fff 100%
+  );
+}
+
+/* fills the spotlight back in when the pointer leaves the grid */
+.fade {
+  mask-image: radial-gradient(
+    circle var(--r) at var(--x) var(--y),
+    #fff 0%,
+    #fff 15%,
+    rgb(255 255 255 / 0.9) 30%,
+    rgb(255 255 255 / 0.78) 45%,
+    rgb(255 255 255 / 0.65) 60%,
+    rgb(255 255 255 / 0.5) 75%,
+    rgb(255 255 255 / 0.32) 88%,
+    transparent 100%
+  );
+  opacity: 1;
+  transition: opacity 600ms ease;
+}
+
+/* touch: no cursor spotlight, cards are B/W until tapped */
+@media (hover: none) {
+  .overlay,
+  .fade {
+    display: none;
+  }
+
+  .card {
+    filter: grayscale(1);
+    transition:
+      transform 450ms var(--ease-out),
+      box-shadow 450ms var(--ease-out),
+      filter 450ms ease;
+  }
+
+  .card[data-active] {
+    filter: none;
+  }
+}
+
+@media (max-width: 899px) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+    padding-inline: 16px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card,
+  .media img,
+  .fade,
+  .card::before {
+    transition-duration: 1ms;
+  }
+
+  .card,
+  .card:hover,
+  .card[data-active] {
+    transform: none;
+  }
+}

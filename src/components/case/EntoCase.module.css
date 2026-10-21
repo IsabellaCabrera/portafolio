@@ -124,6 +124,10 @@
   padding-left: calc(501 * var(--u));
 }
 
+.illGrid {
+  margin-top: calc(45 * var(--u));
+}
+
 /* ── Design Process (4 × 2, full bleed) ─────────────────────── */
 .process {
   margin-top: calc(260 * var(--u));

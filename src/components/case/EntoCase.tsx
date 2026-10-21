@@ -9,7 +9,7 @@ import { categoryCopy, worksCopy } from "@/content/works";
 import { ProjectStamps } from "@/components/works/ProjectStamps";
 import { CaseHeader } from "./CaseHeader";
 import { StickerPile } from "./StickerPile";
-import { IllustrationGallery } from "./IllustrationGallery";
+import { ChromaGrid } from "@/components/ui/ChromaGrid";
 import styles from "./EntoCase.module.css";
 
 type R = { x: number; y: number; w: number; h: number };
@@ -31,7 +31,7 @@ const stickers: { src: AssetPath; r: R }[] = [
   { src: "/assets/cases/ento/sticker-midcentury.webp", r: { x: 44, y: 1476, w: 380, h: 117 } },
 ];
 
-/* Illustrations — interactive mosaic; each tile tinted with an ENTO process colour */
+/* Illustrations — ChromaGrid cards (B/W until the cursor lights them); accents are the ENTO process colours */
 const illustrations: { src: AssetPath; key: keyof typeof entoCopy.illustrationNames; color: string }[] = [
   { src: "/assets/cases/ento/tomate.webp", key: "tomato", color: "#5d5609" },
   { src: "/assets/cases/ento/champinon.webp", key: "mushroom", color: "#045077" },
@@ -119,14 +119,20 @@ export function EntoCase({ lang }: { lang: Locale }) {
       {/* Illustrations grid */}
       <section className={styles.illustrations}>
         <h2 className={styles.h2}>{e.illustrationsTitle[lang]}</h2>
-        <IllustrationGallery
-          items={illustrations.map((it) => ({
-            img: asset(it.src),
-            alt: e.alts[it.key][lang],
-            name: e.illustrationNames[it.key][lang],
-            color: it.color,
-          }))}
-        />
+        <div className={styles.illGrid}>
+          <ChromaGrid
+            columns={3}
+            radius={260}
+            aspectRatio="1 / 1"
+            items={illustrations.map((it) => ({
+              image: asset(it.src),
+              alt: e.alts[it.key][lang],
+              title: e.illustrationNames[it.key][lang],
+              subtitle: e.illustrationSubtitle[lang],
+              accent: it.color,
+            }))}
+          />
+        </div>
       </section>
 
       {/* Design Process */}
