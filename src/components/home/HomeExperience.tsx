@@ -73,9 +73,6 @@ const ROWS: [number, number][] = [
   [509, 288],
   [797, 227],
 ];
-const DOTS: [number, number][] = [
-  [174, 732], [838, 964], [1247, 324], [393, 571], [914, 144], [1367, 30], [375, 206], [42, 78], [1302, 787],
-];
 
 export function HomeExperience({ lang }: { lang: Locale }) {
   const router = useRouter();
@@ -140,7 +137,6 @@ export function HomeExperience({ lang }: { lang: Locale }) {
   );
 
   const map = asset("/assets/home/map.webp");
-  const blocks = asset("/assets/entrance/blocks.webp");
   const photo = asset("/assets/home/photo-isa.webp");
   const postcard = asset("/assets/home/postcard.webp");
 
@@ -205,13 +201,6 @@ export function HomeExperience({ lang }: { lang: Locale }) {
         <div className={styles.entrance} data-entrance-open="" aria-hidden={phase === "entering"}>
           {/* 1440×1024 box scaled to cover the viewport, like the Figma frame */}
           <div className={styles.cover} aria-hidden="true">
-            {DOTS.map(([x, y], i) => (
-              <span
-                key={i}
-                className={styles.dot}
-                style={{ left: `${(x / 1440) * 100}%`, top: `${(y / 1024) * 100}%` }}
-              />
-            ))}
             {ROWS.map(([y, h], r) =>
               COLS.map((x, c) => (
                 <span
@@ -223,9 +212,6 @@ export function HomeExperience({ lang }: { lang: Locale }) {
                       top: `${(y / 1024) * 100}%`,
                       width: `${(288 / 1440) * 100}%`,
                       height: `${(h / 1024) * 100}%`,
-                      backgroundImage: `url(${blocks.src})`,
-                      backgroundSize: `${(1440 / 288) * 100}% ${(1024 / h) * 100}%`,
-                      backgroundPosition: `${(x / 1152) * 100}% ${(y / (1024 - h)) * 100}%`,
                       ["--d" as string]: `${Math.abs(c - 2) * 70 + Math.abs(r - 1.5) * 60}ms`,
                       ["--dx" as string]: `${(c - 2) * 14}%`,
                       ["--dy" as string]: `${(r - 1.5) * 18 + 30}%`,

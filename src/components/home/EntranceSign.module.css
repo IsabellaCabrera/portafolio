@@ -6,7 +6,8 @@
   height: 100%;
   padding: 0;
   border: 0;
-  border-radius: calc(43 / 713 * 100cqw);
+  /* % of its own box (cqw would resolve against an ancestor here) */
+  border-radius: 6.03% / 16.86%;
   background: #1d4924;
   container-type: inline-size;
   cursor: pointer;
