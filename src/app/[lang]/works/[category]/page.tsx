@@ -10,6 +10,7 @@ import { PageShell } from "@/components/layout/PageShell";
 import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 import { ChipList } from "@/components/ui/Chip";
 import { Beetle3D } from "@/components/works/Beetle3D";
+import { BeetleHint } from "@/components/works/BeetleHint";
 import { ProjectStamps } from "@/components/works/ProjectStamps";
 import styles from "./category.module.css";
 
@@ -54,6 +55,7 @@ export default async function CategoryPage({ params }: { params: Promise<{ lang:
         <div className={styles.intro}>
           <h1 className={styles.title}>{copy.title[lang]}</h1>
           <p className={styles.description}>{copy.description[lang]}</p>
+          <BeetleHint className={styles.hint}>{worksCopy.beetleHint[lang]}</BeetleHint>
         </div>
 
         <div className={styles.beetle}>
@@ -61,7 +63,6 @@ export default async function CategoryPage({ params }: { params: Promise<{ lang:
             model={c.beetleModel}
             fallback={asset(c.beetleFallback)}
             alt={copy.beetleAlt[lang]}
-            hint={worksCopy.beetleHint[lang]}
             yaw={c.slug === "branding" ? -0.55 : 0.6}
           />
         </div>

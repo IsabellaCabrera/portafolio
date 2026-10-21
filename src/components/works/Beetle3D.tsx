@@ -4,7 +4,7 @@ import dynamic from "next/dynamic";
 import Image from "next/image";
 import { useCallback, useEffect, useRef, useState } from "react";
 import type { AssetMeta } from "@/content/assets.generated";
-import { DragHint } from "@/components/ui/DragHint";
+import { BEETLE_LOADED, BEETLE_TOUCHED } from "./BeetleHint";
 import styles from "./Beetle3D.module.css";
 
 const BeetleCanvas = dynamic(() => import("./BeetleCanvas"), { ssr: false });
@@ -33,14 +33,12 @@ export function Beetle3D({
   model,
   fallback,
   alt,
-  hint,
   yaw = 0.6,
   fallbackRotation = 0,
 }: {
   model: string;
   fallback: AssetMeta;
   alt: string;
-  hint: string;
   yaw?: number;
   /** degrees, to match the Figma image rotation */
   fallbackRotation?: number;
@@ -49,7 +47,6 @@ export function Beetle3D({
   const [mount3D, setMount3D] = useState(false);
   const [loaded, setLoaded] = useState(false);
   const [reduced, setReduced] = useState(false);
-  const [touched, setTouched] = useState(false);
 
   useEffect(() => {
     setReduced(window.matchMedia("(prefers-reduced-motion: reduce)").matches);
@@ -68,7 +65,10 @@ export function Beetle3D({
     return () => io.disconnect();
   }, []);
 
-  const onLoaded = useCallback(() => setLoaded(true), []);
+  const onLoaded = useCallback(() => {
+    setLoaded(true);
+    window.dispatchEvent(new Event(BEETLE_LOADED));
+  }, []);
 
   return (
     <div ref={ref} className={styles.wrap} data-loaded={loaded || undefined} role="img" aria-label={alt}>
@@ -84,14 +84,9 @@ export function Beetle3D({
         priority
       />
       {mount3D ? (
-        <div className={styles.canvas} onPointerDown={() => setTouched(true)}>
+        <div className={styles.canvas} onPointerDown={() => window.dispatchEvent(new Event(BEETLE_TOUCHED))}>
           <BeetleCanvas url={model} yaw={yaw} autoRotate={!reduced} onLoaded={onLoaded} />
         </div>
-      ) : null}
-      {loaded ? (
-        <DragHint hidden={touched} className={styles.hint}>
-          {hint}
-        </DragHint>
       ) : null}
     </div>
   );

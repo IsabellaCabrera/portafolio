@@ -33,22 +33,3 @@
 .wrap[data-loaded] .canvas {
   opacity: 1;
 }
-
-.hint {
-  /* above the beetle, on the right, so the interaction isn't missed */
-  position: absolute;
-  top: 0;
-  right: 0;
-  z-index: 3;
-}
-
-@media (max-width: 899px) {
-  .hint {
-    right: 50%;
-    transform: translateX(50%);
-  }
-
-  .hint[data-hidden] {
-    transform: translate(50%, -8px);
-  }
-}
