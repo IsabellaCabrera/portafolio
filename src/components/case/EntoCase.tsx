@@ -49,7 +49,7 @@ const illustrations: { src: AssetPath; alt: keyof typeof entoCopy.alts; r: R }[]
 ];
 
 /* Design process: 4 × 2 full-bleed grid; colored cards carry the step, the rest are flavor photos */
-const processGrid: ({ kind: "step"; step: 0 | 1 | 2 | 3; label: { x: number; y: number }; text: { x: number; y: number; w: number }; num: { x: number } } | { kind: "photo"; src: AssetPath; alt: keyof typeof entoCopy.alts })[] = [
+const processGrid: ({ kind: "step"; step: 0 | 1 | 2 | 3; label: { x: number; y: number }; text: { x: number; y: number; w: number }; num: { x: number }; tight?: boolean } | { kind: "photo"; src: AssetPath; alt: keyof typeof entoCopy.alts })[] = [
   { kind: "step", step: 0, label: { x: 32, y: 72.8 }, text: { x: 49, y: 173, w: 225 }, num: { x: 139 } },
   { kind: "photo", src: "/assets/cases/ento/flavor-04.webp", alt: "flavor04" },
   { kind: "step", step: 2, label: { x: 38, y: 68 }, text: { x: 49, y: 173, w: 225 }, num: { x: 130 } },
@@ -57,7 +57,7 @@ const processGrid: ({ kind: "step"; step: 0 | 1 | 2 | 3; label: { x: number; y: 
   { kind: "photo", src: "/assets/cases/ento/flavor-01.webp", alt: "flavor01" },
   { kind: "step", step: 1, label: { x: 37, y: 63.6 }, text: { x: 50, y: 166, w: 225 }, num: { x: 147 } },
   { kind: "photo", src: "/assets/cases/ento/flavor-06.webp", alt: "flavor06" },
-  { kind: "step", step: 3, label: { x: 20, y: 45.4 }, text: { x: 53, y: 165, w: 267 }, num: { x: 140 } },
+  { kind: "step", step: 3, label: { x: 20, y: 72 }, text: { x: 53, y: 180, w: 267 }, num: { x: 140 }, tight: true },
 ];
 
 export function EntoCase({ lang }: { lang: Locale }) {
@@ -164,6 +164,7 @@ export function EntoCase({ lang }: { lang: Locale }) {
               <li
                 key={i}
                 className={styles.stepCell}
+                data-tight={cell.tight || undefined}
                 style={
                   {
                     background: step.color,

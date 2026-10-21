@@ -164,11 +164,12 @@
 }
 
 .processGrid {
+  /* full-bleed: edge to edge at any width, rows keep the Figma 1444 × 496 ratio */
   display: grid;
   grid-template-columns: 346fr 366fr 362fr 370fr;
-  grid-auto-rows: calc(496 * var(--u));
-  max-width: var(--layout-page-width);
-  margin: calc(90 * var(--u)) auto 0;
+  grid-auto-rows: max(calc(496 * var(--u)), calc(100vw * 496 / 1444));
+  width: 100%;
+  margin: calc(90 * var(--u)) 0 0;
   padding: 0;
   list-style: none;
 }
@@ -196,6 +197,11 @@
   max-width: calc(330 * var(--u));
   transform-origin: 0 0;
   transform: rotate(-16deg);
+}
+
+/* two-line label ("Color & identity"): tight leading so it stays above the text */
+.stepCell[data-tight] .stepLabel {
+  line-height: 1.05;
 }
 
 .stepText {
