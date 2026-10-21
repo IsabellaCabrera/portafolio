@@ -37,8 +37,8 @@
 
 .hint {
   position: absolute;
-  left: 50%;
-  bottom: max(12px, calc(28 * var(--u)));
+  right: max(16px, calc(124 * var(--u)));
+  top: max(8px, calc(16 * var(--u)));
   z-index: 50;
   display: inline-flex;
   align-items: center;
@@ -53,7 +53,6 @@
   font-size: clamp(16px, calc(22 * var(--u)), 22px);
   color: var(--color-brand-teal-dark);
   white-space: nowrap;
-  transform: translateX(-50%);
   pointer-events: none;
   transition:
     opacity var(--dur-slow) var(--ease-out),
@@ -62,7 +61,7 @@
 
 .hint[data-hidden] {
   opacity: 0;
-  transform: translate(-50%, 8px);
+  transform: translateY(-8px);
 }
 
 .hand {
