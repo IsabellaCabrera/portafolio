@@ -1,0 +1,147 @@
+.header {
+  position: relative;
+  max-width: var(--layout-page-width);
+  height: calc(var(--h) * var(--u));
+  margin-inline: auto;
+}
+
+.crumbs {
+  position: absolute;
+  left: calc(124 * var(--u));
+  top: calc(131 * var(--u));
+  z-index: 2;
+}
+
+.intro {
+  position: absolute;
+  left: calc(124 * var(--u));
+  top: calc(190 * var(--u));
+  width: calc(361 * var(--u));
+  display: grid;
+  gap: calc(22 * var(--u));
+  z-index: 1;
+}
+
+.title {
+  font-size: var(--type-display-size);
+  font-weight: 900;
+  line-height: 1.18;
+  color: var(--color-brand-olive);
+}
+
+.text {
+  display: grid;
+  gap: 1.175em;
+  font-size: max(16px, var(--type-body-l-size));
+  line-height: 1.2;
+  color: var(--color-text-ink);
+}
+
+.text[data-tone="olive"] {
+  color: var(--color-brand-olive);
+}
+
+.visual {
+  position: absolute;
+  left: calc(var(--x) * var(--u));
+  top: calc(var(--y) * var(--u));
+  width: calc(var(--w) * var(--u));
+  height: calc(var(--vh) * var(--u));
+}
+
+.visual > * {
+  width: 100%;
+  height: 100%;
+}
+
+.side {
+  position: absolute;
+  left: calc(974 * var(--u));
+  top: calc(189 * var(--u));
+  width: calc(370 * var(--u));
+  display: grid;
+  gap: calc(28 * var(--u));
+}
+
+.meta {
+  display: grid;
+  gap: calc(9 * var(--u));
+  margin: 0;
+}
+
+.metaRow {
+  display: grid;
+  gap: calc(9 * var(--u));
+}
+
+.metaRow dt {
+  font-size: var(--type-meta-size);
+  font-weight: 500;
+  line-height: 1.16;
+  color: var(--color-text-ink);
+}
+
+.metaRow dd {
+  margin: 0;
+  font-size: max(16px, var(--type-body-l-size));
+  line-height: 1.2;
+  color: var(--color-text-ink);
+}
+
+@media (max-width: 1180px) {
+  .crumbs {
+    top: calc(131 * var(--u) + 30px);
+  }
+
+  .intro,
+  .side {
+    top: calc(190 * var(--u) + 40px);
+  }
+}
+
+@media (max-width: 899px) {
+  .header {
+    height: auto;
+    display: grid;
+    gap: 24px;
+    padding: 128px max(16px, env(safe-area-inset-right, 0px)) 16px max(16px, env(safe-area-inset-left, 0px));
+  }
+
+  .crumbs,
+  .intro,
+  .visual,
+  .side {
+    position: relative;
+    left: auto;
+    top: auto;
+    width: auto;
+    height: auto;
+  }
+
+  .intro {
+    gap: 16px;
+  }
+
+  .text {
+    max-width: 60ch;
+  }
+
+  .visual {
+    width: min(100%, calc(var(--w) * 1px));
+    justify-self: center;
+    aspect-ratio: var(--w) / var(--vh);
+  }
+
+  .side {
+    gap: 20px;
+  }
+
+  .meta {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px 20px;
+  }
+
+  .metaRow dt {
+    font-size: 17px;
+  }
+}

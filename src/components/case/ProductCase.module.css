@@ -1,0 +1,119 @@
+.hero {
+  object-fit: contain;
+}
+
+.heroShadow {
+  object-fit: contain;
+  filter: drop-shadow(0 6px 12px rgb(0 0 0 / 0.18));
+}
+
+.cluster {
+  max-width: var(--layout-page-width);
+  margin-inline: auto;
+}
+
+/* Lumi "inside" section: Figma frame 1440 × 1366 (y 3168 → 4534) */
+.lumi {
+  position: relative;
+  z-index: 1;
+  max-width: var(--layout-page-width);
+  margin-inline: auto;
+  aspect-ratio: 1440 / 1366;
+}
+
+.lumiLight,
+.lumiHardware,
+.lumiColor,
+.lumiHwText {
+  position: absolute;
+}
+
+.lumiLight {
+  left: calc(78 / 1440 * 100%);
+  top: 0;
+  width: calc(742 / 1440 * 100%);
+}
+
+.lumiHardware {
+  left: calc(265 / 1440 * 100%);
+  top: 0;
+  width: calc(1171 / 1440 * 100%);
+}
+
+.lumiLight img,
+.lumiHardware img {
+  width: 100%;
+  height: auto;
+}
+
+.lumiColor {
+  left: calc(849 / 1440 * 100%);
+  top: calc(70 / 1366 * 100%);
+  width: calc(300 / 1440 * 100%);
+}
+
+.lumiHwText {
+  left: calc(202 / 1440 * 100%);
+  top: calc(710 / 1366 * 100%);
+  width: calc(300 / 1440 * 100%);
+}
+
+.lumiColor,
+.lumiHwText {
+  display: grid;
+  gap: calc(25 * var(--u));
+  font-size: max(14px, calc(13.6 * var(--u)));
+  line-height: 1.67;
+  color: var(--color-brand-olive);
+}
+
+.lumiTitle {
+  font-size: max(20px, var(--type-case-card-title-size));
+  font-weight: 700;
+  line-height: 1.17;
+  padding-left: calc(10 * var(--u));
+}
+
+@media (max-width: 899px) {
+  .cluster {
+    margin-top: 8px;
+  }
+
+  .lumi {
+    aspect-ratio: auto;
+    display: grid;
+    gap: 24px;
+    margin-top: 56px !important;
+    padding-inline: max(16px, env(safe-area-inset-left, 0px)) max(16px, env(safe-area-inset-right, 0px));
+  }
+
+  .lumiLight,
+  .lumiHardware,
+  .lumiColor,
+  .lumiHwText {
+    position: static;
+    width: auto;
+  }
+
+  .lumiLight {
+    order: 1;
+    width: min(100%, 420px);
+    justify-self: center;
+  }
+
+  .lumiColor {
+    order: 2;
+  }
+
+  .lumiHardware {
+    order: 3;
+  }
+
+  .lumiHwText {
+    order: 4;
+  }
+
+  .lumiTitle {
+    padding-left: 0;
+  }
+}

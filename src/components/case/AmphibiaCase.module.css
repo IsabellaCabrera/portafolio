@@ -1,0 +1,243 @@
+/* Figma "Case / Branding / Amphibia" — desktop values are Figma px × var(--u) */
+
+.contain {
+  object-fit: contain;
+}
+
+.cluster {
+  max-width: var(--layout-page-width);
+  margin-inline: auto;
+}
+
+.h2 {
+  font-size: var(--type-h2-size);
+  font-weight: 600;
+  line-height: 1.1;
+  color: var(--color-brand-olive);
+}
+
+.centered {
+  text-align: center;
+}
+
+/* Yellow logo band: y 1460, 400 tall, #ddca01, wordmark 973 × 191 */
+.band {
+  display: grid;
+  place-items: center;
+  height: calc(400 * var(--u));
+  margin-top: calc(210 * var(--u));
+  background: #ddca01;
+}
+
+.wordmark {
+  width: calc(973 * var(--u));
+  height: auto;
+}
+
+.concept {
+  max-width: var(--layout-page-width);
+  margin: calc(121 * var(--u)) auto 0;
+  padding-left: calc(508 * var(--u));
+  display: grid;
+  gap: calc(58 * var(--u));
+  font-size: max(16px, var(--type-body-l-size));
+  line-height: 1.2;
+  color: var(--color-text-ink);
+}
+
+.concept .h2 {
+  max-width: calc(470 * var(--u));
+}
+
+.concept p {
+  max-width: calc(748 * var(--u));
+}
+
+.concept p + p {
+  margin-top: calc(-20 * var(--u));
+}
+
+.bento {
+  max-width: var(--layout-page-width);
+  margin: calc(121 * var(--u)) auto 0;
+  padding-left: calc(117 * var(--u));
+}
+
+.bento img {
+  width: calc(1200 * var(--u));
+  height: auto;
+}
+
+/* Color palette: four 160px circles 293px apart, hex below */
+.palette {
+  max-width: var(--layout-page-width);
+  margin: calc(200 * var(--u)) auto 0;
+}
+
+.swatches {
+  display: grid;
+  grid-template-columns: repeat(4, calc(160 * var(--u)));
+  column-gap: calc(133 * var(--u));
+  justify-content: center;
+  margin: calc(124 * var(--u)) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.swatches li {
+  display: grid;
+  justify-items: center;
+  gap: calc(35 * var(--u));
+}
+
+.swatch {
+  width: calc(160 * var(--u));
+  aspect-ratio: 1;
+  border-radius: 50%;
+  box-shadow: inset 0 0 0 1px rgb(0 0 0 / 0.06);
+}
+
+.hex {
+  font-family: var(--font-sans);
+  font-size: max(15px, calc(24 * var(--u)));
+  font-weight: 500;
+  color: var(--color-brand-olive);
+}
+
+/* Typography specimen */
+.type {
+  max-width: var(--layout-page-width);
+  margin: calc(202 * var(--u)) auto calc(314 * var(--u));
+}
+
+.specimens {
+  display: grid;
+  grid-template-columns: calc(420 * var(--u)) calc(354 * var(--u)) calc(425 * var(--u));
+  align-items: start;
+  margin-top: calc(216 * var(--u));
+  padding-left: calc(122 * var(--u));
+}
+
+.specimen {
+  display: grid;
+  color: var(--color-text-ink);
+}
+
+.glyphs {
+  font-size: calc(96 * var(--u));
+  line-height: 1.2;
+}
+
+.faceName {
+  font-size: max(20px, calc(40 * var(--u)));
+  line-height: 1.2;
+}
+
+.specimen[data-face="museo"] {
+  font-family: var(--ff-museo-moderno), "MuseoModerno", var(--font-sans);
+}
+
+.specimen[data-face="spartan"] {
+  font-family: var(--ff-league-spartan), "League Spartan", var(--font-sans);
+  padding-top: calc(26 * var(--u));
+}
+
+.fullLogo img {
+  width: 100%;
+  height: auto;
+}
+
+.typeNote {
+  max-width: calc(625 * var(--u));
+  margin: calc(80 * var(--u)) 0 0 calc(120 * var(--u));
+  font-size: max(16px, var(--type-body-l-size));
+  line-height: 1.2;
+  color: var(--color-text-ink);
+}
+
+/* ── mobile ─────────────────────────────────────────────────── */
+@media (max-width: 899px) {
+  .band {
+    height: 160px;
+    margin-top: 24px;
+  }
+
+  .wordmark {
+    width: min(86vw, 520px);
+  }
+
+  .concept,
+  .bento,
+  .typeNote {
+    padding-inline: max(16px, env(safe-area-inset-left, 0px)) max(16px, env(safe-area-inset-right, 0px));
+  }
+
+  .concept {
+    margin-top: 48px;
+    gap: 16px;
+  }
+
+  .concept .h2,
+  .concept p {
+    max-width: 60ch;
+  }
+
+  .concept p + p {
+    margin-top: 0;
+  }
+
+  .bento {
+    margin-top: 40px;
+  }
+
+  .bento img {
+    width: 100%;
+  }
+
+  .palette {
+    margin-top: 56px;
+  }
+
+  .swatches {
+    grid-template-columns: repeat(2, 120px);
+    gap: 24px 40px;
+    margin-top: 32px;
+  }
+
+  .swatch {
+    width: 120px;
+  }
+
+  .swatches li {
+    gap: 10px;
+  }
+
+  .type {
+    margin: 56px auto 64px;
+  }
+
+  .specimens {
+    grid-template-columns: 1fr 1fr;
+    gap: 24px 16px;
+    margin-top: 32px;
+    padding-inline: 16px;
+  }
+
+  .glyphs {
+    font-size: 64px;
+  }
+
+  .specimen[data-face="spartan"] {
+    padding-top: 0;
+  }
+
+  .fullLogo {
+    grid-column: 1 / -1;
+    max-width: 320px;
+  }
+
+  .typeNote {
+    max-width: 60ch;
+    margin: 32px 0 0;
+  }
+}

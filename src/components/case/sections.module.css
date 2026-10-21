@@ -1,0 +1,259 @@
+/* Shared case-study sections. Desktop values are Figma px × var(--u). */
+
+.sectionTitle {
+  font-size: var(--type-case-section-size);
+  font-weight: 500;
+  line-height: 1.3;
+  color: var(--color-brand-olive);
+}
+
+/* ── Problem / Solution ─────────────────────────────────────── */
+.ps {
+  display: grid;
+  grid-template-columns: calc(361 * var(--u)) calc(var(--iw) * var(--u));
+  column-gap: calc(var(--gap) * var(--u));
+  align-items: start;
+  max-width: var(--layout-page-width);
+  margin: calc(var(--mt) * var(--u)) auto 0;
+  padding-left: calc(124 * var(--u));
+}
+
+.psText {
+  display: grid;
+  gap: calc(14 * var(--u));
+  font-size: max(16px, var(--type-body-l-size));
+  line-height: 1.2;
+  color: var(--color-text-ink);
+}
+
+.problem,
+.solution {
+  font-size: var(--type-case-section-size);
+  font-weight: 500;
+  line-height: 1.3;
+}
+
+.problem {
+  color: var(--color-problem);
+}
+
+.solution {
+  margin-top: calc(30 * var(--u));
+  color: var(--color-brand-olive);
+}
+
+.psImage {
+  margin-top: calc(var(--io) * var(--u));
+}
+
+.psImage img {
+  width: 100%;
+  height: auto;
+}
+
+/* ── Insights ───────────────────────────────────────────────── */
+.insights {
+  max-width: var(--layout-page-width);
+  margin: calc(var(--mt) * var(--u)) auto 0;
+  padding-left: calc(124 * var(--u));
+}
+
+.insightGrid {
+  display: grid;
+  grid-template-columns: calc(390 * var(--u)) calc(399 * var(--u)) calc(398 * var(--u));
+  margin: calc(71 * var(--u)) 0 0 calc(4 * var(--u));
+  padding: 0;
+  list-style: none;
+}
+
+.insight {
+  min-height: calc(308 * var(--u));
+  padding: calc(29 * var(--u)) calc(60 * var(--u)) calc(24 * var(--u)) calc(42 * var(--u));
+  border-left: 1px solid var(--color-text-ink);
+  display: grid;
+  align-content: start;
+  gap: calc(13 * var(--u));
+}
+
+.insight:last-child {
+  border-right: 1px solid var(--color-text-ink);
+}
+
+.insightTitle {
+  font-size: max(20px, var(--type-case-card-title-size));
+  font-weight: 700;
+  line-height: 1.17;
+  color: var(--color-brand-olive);
+}
+
+.insightBody {
+  font-size: max(14px, calc(13.6 * var(--u)));
+  line-height: 1.67;
+  color: var(--color-text-ink);
+}
+
+.insightBody[data-tone="olive"] {
+  color: var(--color-brand-olive);
+}
+
+.insightBody strong {
+  font-weight: 700;
+}
+
+/* ── Wireframes ─────────────────────────────────────────────── */
+.wireframes {
+  max-width: var(--layout-page-width);
+  margin: calc(var(--mt) * var(--u)) auto 0;
+  padding-left: calc(120 * var(--u));
+}
+
+.subtitle {
+  font-size: max(16px, var(--type-body-l-size));
+  color: var(--color-text-ink);
+}
+
+.wireImage {
+  position: relative;
+  z-index: 1;
+  width: calc(var(--w) * var(--u));
+  margin: calc(var(--g) * var(--u)) 0 0 calc((var(--x) - 120) * var(--u));
+}
+
+.wireImage img {
+  width: 100%;
+  height: auto;
+}
+
+/* ── Behance band ───────────────────────────────────────────── */
+.band {
+  position: relative;
+  margin-top: calc(var(--ov) * -1 * var(--u));
+  padding-top: calc(var(--tt) * var(--u));
+  min-height: calc(587 * var(--u));
+  padding-bottom: calc(90 * var(--u));
+  background: linear-gradient(180deg, var(--c1) 0%, var(--c2) 100%);
+  -webkit-mask-image: linear-gradient(180deg, transparent 0, #000 calc(var(--tt) * 0.45 * var(--u)));
+  mask-image: linear-gradient(180deg, transparent 0, #000 calc(var(--tt) * 0.45 * var(--u)));
+  color: #f3f2f2;
+}
+
+.bandInner {
+  max-width: var(--layout-page-width);
+  margin-inline: auto;
+  padding-inline: calc(125 * var(--u));
+  display: grid;
+  gap: calc(36 * var(--u));
+}
+
+.bandTitle {
+  font-size: max(26px, calc(36 * var(--u)));
+  font-weight: 700;
+  line-height: 1.8;
+}
+
+.bandLinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px calc(32 * var(--u));
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.bandButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 56px;
+  padding: 14px 24px 14px 28px;
+  border: 1.5px solid currentColor;
+  border-radius: var(--radius-pill);
+  font-size: max(17px, calc(22 * var(--u)));
+  font-weight: 500;
+  color: #f3f2f2;
+  text-decoration: none;
+  transition:
+    background var(--dur-base) var(--ease-out),
+    color var(--dur-base) var(--ease-out);
+}
+
+.bandButton svg {
+  transition: transform var(--dur-base) var(--ease-out);
+}
+
+.bandButton:hover,
+.bandButton:focus-visible {
+  background: #f3f2f2;
+  color: var(--c2);
+}
+
+.bandButton:hover svg {
+  transform: translate(2px, -2px);
+}
+
+.bandButton:focus-visible {
+  outline-color: #f3f2f2;
+}
+
+/* ── mobile ─────────────────────────────────────────────────── */
+@media (max-width: 899px) {
+  .ps,
+  .insights,
+  .wireframes {
+    margin-top: 56px;
+    padding-inline: max(16px, env(safe-area-inset-left, 0px)) max(16px, env(safe-area-inset-right, 0px));
+  }
+
+  .ps {
+    grid-template-columns: 1fr;
+    row-gap: 32px;
+  }
+
+  .psText {
+    gap: 12px;
+    max-width: 60ch;
+  }
+
+  .solution {
+    margin-top: 16px;
+  }
+
+  .psImage {
+    margin-top: 0;
+  }
+
+  .insightGrid {
+    grid-template-columns: 1fr;
+    margin: 24px 0 0;
+  }
+
+  .insight {
+    min-height: 0;
+    padding: 24px 0;
+    border-left: 0;
+    border-top: 1px solid var(--color-text-ink);
+  }
+
+  .insight:last-child {
+    border-right: 0;
+    border-bottom: 1px solid var(--color-text-ink);
+  }
+
+  .wireImage {
+    width: 100%;
+    margin: 24px 0 0;
+  }
+
+  .band {
+    margin-top: -60px;
+    padding: 140px 0 64px;
+    min-height: 0;
+    -webkit-mask-image: linear-gradient(180deg, transparent 0, #000 90px);
+    mask-image: linear-gradient(180deg, transparent 0, #000 90px);
+  }
+
+  .bandInner {
+    padding-inline: max(16px, env(safe-area-inset-left, 0px)) max(16px, env(safe-area-inset-right, 0px));
+    gap: 20px;
+  }
+}

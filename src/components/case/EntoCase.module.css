@@ -1,0 +1,328 @@
+/* Figma "Case / Branding / ENTO" — desktop values are Figma px × var(--u) */
+
+.logo {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.cluster {
+  max-width: var(--layout-page-width);
+  margin-inline: auto;
+}
+
+.h2 {
+  font-size: var(--type-h2-size);
+  font-weight: 600;
+  line-height: 1.1;
+  color: var(--color-brand-olive);
+}
+
+/* ── sticker pile (y 1290 → 2030) ───────────────────────────── */
+.stickers {
+  position: relative;
+  max-width: var(--layout-page-width);
+  margin: calc(60 * var(--u)) auto 0;
+  container-type: inline-size;
+}
+
+.pattern {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.patternWord {
+  position: absolute;
+  display: block;
+  text-align: center;
+  white-space: nowrap;
+  font-size: calc(113.6 / 1440 * 100cqw);
+  font-weight: 600;
+  line-height: 1.17;
+  color: #d1d1d1;
+  user-select: none;
+}
+
+.sticker {
+  position: absolute;
+  display: block;
+}
+
+.sticker img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: transform var(--dur-base) var(--ease-out);
+}
+
+.sticker:hover img {
+  transform: scale(1.04) rotate(-2deg);
+}
+
+/* ── Brand Concept & Inspiration ────────────────────────────── */
+.concept {
+  max-width: var(--layout-page-width);
+  margin: calc(17 * var(--u)) auto 0;
+  padding-left: calc(503 * var(--u));
+  display: grid;
+  gap: calc(50 * var(--u));
+  font-size: max(16px, var(--type-body-l-size));
+  line-height: 1.2;
+  color: var(--color-text-ink);
+}
+
+.concept .h2 {
+  max-width: calc(470 * var(--u));
+  margin-left: calc(4 * var(--u));
+}
+
+.concept p {
+  max-width: calc(748 * var(--u));
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, calc(378 * var(--u)));
+  gap: calc(28 * var(--u));
+  max-width: var(--layout-page-width);
+  margin: calc(143 * var(--u)) auto 0;
+  padding: 0 0 0 calc(125 * var(--u));
+  list-style: none;
+}
+
+.cards img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 378 / 457;
+  object-fit: cover;
+}
+
+.construction {
+  max-width: var(--layout-page-width);
+  margin: calc(134 * var(--u)) auto 0;
+}
+
+.construction img {
+  width: calc(1467 * var(--u));
+  max-width: none;
+  height: auto;
+  margin-left: calc(-21 * var(--u));
+}
+
+/* ── Illustrations (y 4257 → 5160) ──────────────────────────── */
+.illustrations {
+  max-width: var(--layout-page-width);
+  margin: calc(234 * var(--u)) auto 0;
+}
+
+.illustrations > .h2 {
+  padding-left: calc(501 * var(--u));
+}
+
+.illGrid {
+  position: relative;
+  margin-top: calc(45 * var(--u));
+}
+
+.hairlines {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  stroke: var(--color-text-ink);
+  stroke-width: 1;
+}
+
+.hairlines line {
+  vector-effect: non-scaling-stroke;
+}
+
+.illItem {
+  position: absolute;
+  display: block;
+}
+
+.illItem img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* ── Design Process (4 × 2, full bleed) ─────────────────────── */
+.process {
+  margin-top: calc(260 * var(--u));
+}
+
+.process > .h2 {
+  max-width: var(--layout-page-width);
+  margin-inline: auto;
+  padding-left: calc(503 * var(--u));
+}
+
+.processGrid {
+  display: grid;
+  grid-template-columns: 346fr 366fr 362fr 370fr;
+  grid-auto-rows: calc(496 * var(--u));
+  max-width: var(--layout-page-width);
+  margin: calc(90 * var(--u)) auto 0;
+  padding: 0;
+  list-style: none;
+}
+
+.photoCell img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.stepCell {
+  position: relative;
+  overflow: hidden;
+  color: #e5e0d5;
+}
+
+.stepLabel {
+  position: absolute;
+  left: calc(var(--lx) * var(--u));
+  top: calc(var(--ly) * var(--u));
+  font-family: var(--font-script);
+  font-weight: 400;
+  font-size: calc(48 * var(--u));
+  line-height: 2.17;
+  max-width: calc(330 * var(--u));
+  transform-origin: 0 0;
+  transform: rotate(-16deg);
+}
+
+.stepText {
+  position: absolute;
+  left: calc(var(--tx) * var(--u));
+  top: calc(var(--ty) * var(--u));
+  width: calc(var(--tw) * var(--u));
+  font-size: max(13px, var(--type-body-l-size));
+  line-height: 1.2;
+}
+
+.stepNum {
+  position: absolute;
+  left: calc(var(--nx) * var(--u));
+  top: calc(343 * var(--u));
+  font-size: calc(130.2 * var(--u));
+  font-weight: 600;
+  line-height: 1.17;
+}
+
+.composition {
+  max-width: var(--layout-page-width);
+  margin: calc(217 * var(--u)) auto calc(217 * var(--u));
+  padding-left: calc(139 * var(--u));
+}
+
+.composition img {
+  width: calc(1264 * var(--u));
+  height: auto;
+}
+
+/* ── mobile ─────────────────────────────────────────────────── */
+@media (max-width: 899px) {
+  .stickers {
+    margin-top: 24px;
+  }
+
+  .concept,
+  .illustrations > .h2,
+  .process > .h2 {
+    padding-inline: max(16px, env(safe-area-inset-left, 0px)) max(16px, env(safe-area-inset-right, 0px));
+  }
+
+  .concept {
+    margin-top: 40px;
+    gap: 16px;
+  }
+
+  .concept .h2,
+  .concept p {
+    max-width: 60ch;
+    margin-left: 0;
+  }
+
+  .cards {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+    margin-top: 40px;
+    padding-inline: max(16px, env(safe-area-inset-left, 0px)) max(16px, env(safe-area-inset-right, 0px));
+  }
+
+  .construction {
+    margin-top: 48px;
+  }
+
+  .construction img {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .illustrations {
+    margin-top: 56px;
+  }
+
+  .illGrid {
+    margin-top: 16px;
+  }
+
+  .process {
+    margin-top: 56px;
+  }
+
+  .processGrid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: auto;
+    margin-top: 24px;
+  }
+
+  .photoCell {
+    aspect-ratio: 346 / 496;
+  }
+
+  .stepCell {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 20px 16px 16px;
+    aspect-ratio: 346 / 496;
+  }
+
+  .stepLabel,
+  .stepText,
+  .stepNum {
+    position: static;
+    width: auto;
+  }
+
+  .stepLabel {
+    font-size: 24px;
+    line-height: 1.6;
+    transform: rotate(-8deg);
+    transform-origin: 0 50%;
+  }
+
+  .stepText {
+    font-size: 14px;
+  }
+
+  .stepNum {
+    margin-top: auto;
+    align-self: flex-end;
+    font-size: 48px;
+  }
+
+  .composition {
+    margin: 48px auto 56px;
+    padding-inline: max(16px, env(safe-area-inset-left, 0px)) max(16px, env(safe-area-inset-right, 0px));
+  }
+
+  .composition img {
+    width: 100%;
+  }
+}
