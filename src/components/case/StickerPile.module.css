@@ -37,13 +37,53 @@
 
 .hint {
   position: absolute;
-  right: max(16px, calc(124 * var(--u)));
-  bottom: 8px;
-  font-size: 13px;
-  font-weight: 300;
-  color: var(--color-text-ink);
-  opacity: 0.7;
+  left: 50%;
+  bottom: max(12px, calc(28 * var(--u)));
+  z-index: 50;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 22px 10px 18px;
+  border: var(--stroke-chip);
+  border-radius: var(--radius-pill);
+  background: color-mix(in srgb, var(--color-bg-page) 88%, transparent);
+  box-shadow: 0 6px 16px rgb(0 0 0 / 0.1);
+  font-family: var(--font-label);
+  font-weight: 500;
+  font-size: clamp(16px, calc(22 * var(--u)), 22px);
+  color: var(--color-brand-teal-dark);
+  white-space: nowrap;
+  transform: translateX(-50%);
   pointer-events: none;
+  transition:
+    opacity var(--dur-slow) var(--ease-out),
+    transform var(--dur-slow) var(--ease-out);
+}
+
+.hint[data-hidden] {
+  opacity: 0;
+  transform: translate(-50%, 8px);
+}
+
+.hand {
+  flex: none;
+  animation: nudge 1.6s var(--ease-in-out) infinite;
+}
+
+@keyframes nudge {
+  0%,
+  100% {
+    transform: translateX(0) rotate(0deg);
+  }
+  50% {
+    transform: translateX(6px) rotate(-8deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hand {
+    animation: none;
+  }
 }
 
 @media (max-width: 899px) {

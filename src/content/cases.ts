@@ -364,7 +364,7 @@ export const entoCopy = {
     },
   ] satisfies T[],
   pattern: { en: ["ENTO", "FOOD", "READY TO EAT"], es: ["ENTO", "FOOD", "READY TO EAT"] },
-  dragHint: { en: "Drag the stickers around", es: "Arrastra los stickers" } satisfies T,
+  dragHint: { en: "Grab a sticker and drag it around", es: "Agarra un sticker y arrástralo" } satisfies T,
   stickersAlt: { en: "ENTO die-cut stickers scattered over the ENTO FOOD READY TO EAT pattern", es: "Stickers troquelados de ENTO esparcidos sobre el patrón ENTO FOOD READY TO EAT" } satisfies T,
   illustrationsTitle: { en: "Illustrations", es: "Ilustraciones" } satisfies T,
   processTitle: { en: "Design Process", es: "Proceso de diseño" } satisfies T,
