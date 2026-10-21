@@ -1,0 +1,278 @@
+/*
+ * Desktop: Figma frame coordinates. The card ("Panel / About card") is
+ * 1218×810 at (173,175), radius 85, #e9e9e9. Everything inside is placed
+ * relative to the card in Figma px × var(--u).
+ */
+.card {
+  position: absolute;
+  left: calc(173 * var(--u));
+  top: calc(175 * var(--u));
+  width: calc(1218 * var(--u));
+  height: calc(810 * var(--u));
+  border-radius: calc(85 * var(--u));
+  background: #e9e9e9;
+}
+
+.post {
+  position: absolute;
+  left: calc(-157 * var(--u));
+  top: calc(-13 * var(--u));
+  width: calc(450 * var(--u));
+  aspect-ratio: 450 / 823;
+  z-index: 2;
+}
+
+.postImg {
+  width: 100%;
+  height: auto;
+  pointer-events: none;
+  user-select: none;
+}
+
+.hotspots {
+  position: absolute;
+  inset: 0;
+}
+
+.hotspot {
+  position: absolute;
+  padding: 0;
+  border: 0;
+  border-radius: 18px;
+  background: radial-gradient(closest-side, rgb(255 255 255 / 0.32), transparent);
+  opacity: 0;
+  cursor: pointer;
+  transition: opacity var(--dur-base) var(--ease-out);
+}
+
+.hotspot:hover,
+.hotspot:focus-visible {
+  opacity: 1;
+}
+
+.hotspot:focus-visible {
+  outline: 2px solid var(--color-brand-teal);
+  outline-offset: 2px;
+}
+
+.hint {
+  position: absolute;
+  left: calc(76 * var(--u));
+  top: calc(59 * var(--u));
+  z-index: 3;
+  font-size: max(13px, calc(16 * var(--u)));
+  font-weight: 300;
+  color: var(--color-text-ink);
+  pointer-events: none;
+}
+
+.panel {
+  position: absolute;
+  inset: 0;
+}
+
+/* ── Intro (About / 01) ─────────────────────────────────────── */
+.intro {
+  position: absolute;
+  left: calc(484 * var(--u));
+  top: calc(185 * var(--u));
+  width: calc(590 * var(--u));
+  color: var(--color-brand-olive);
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px calc(14 * var(--u));
+  padding-left: calc(14 * var(--u));
+  min-height: calc(62 * var(--u));
+  border-bottom: var(--stroke-dashed);
+  font-size: max(17px, calc(24 * var(--u)));
+  font-weight: 700;
+}
+
+.row + .row {
+  min-height: calc(68 * var(--u));
+}
+
+.icon {
+  width: max(14px, calc(20 * var(--u)));
+  height: auto;
+  color: var(--color-text-ink);
+  flex: none;
+}
+
+.sep {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--color-brand-olive);
+}
+
+.bio {
+  display: grid;
+  gap: calc(42 * var(--u));
+  margin-top: calc(42 * var(--u));
+  padding-left: calc(5 * var(--u));
+  max-width: 581px;
+  font-size: max(15px, calc(20 * var(--u)));
+  font-weight: 700;
+  line-height: 1.15;
+}
+
+/* ── Skillsets (About / 02) ─────────────────────────────────── */
+.skillsets {
+  position: absolute;
+  left: calc(498 * var(--u));
+  top: calc(228 * var(--u));
+  width: calc(573 * var(--u));
+  border-top: var(--stroke-dashed);
+  color: var(--color-brand-olive);
+}
+
+.skRow {
+  display: grid;
+  grid-template-columns: 285fr 288fr;
+  align-items: center;
+  min-height: calc(113 * var(--u));
+  border-bottom: var(--stroke-dashed);
+  background-image: linear-gradient(var(--color-brand-olive) 50%, transparent 0);
+  background-size: 1px 12px;
+  background-repeat: repeat-y;
+  background-position: calc(285 / 573 * 100%) 0;
+  background-clip: content-box;
+  padding-block: calc(14 * var(--u));
+}
+
+.skRow:nth-child(2) {
+  min-height: calc(132 * var(--u));
+}
+
+.skRow:nth-child(3) {
+  min-height: calc(109 * var(--u));
+}
+
+.skRow > :first-child {
+  padding-left: calc(33 * var(--u));
+}
+
+.skRow > :last-child {
+  padding-left: calc(44 * var(--u));
+}
+
+.skTitle {
+  font-size: max(22px, calc(35.1 * var(--u)));
+  font-weight: 700;
+  line-height: 1.15;
+}
+
+.numbered,
+.plain {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: calc(7 * var(--u));
+  font-size: max(15px, calc(20 * var(--u)));
+  line-height: 1.17;
+}
+
+.num {
+  font-weight: 500;
+  margin-right: calc(10 * var(--u));
+}
+
+/* ── Experiences / Passions (About / 03, 04) ────────────────── */
+.wheel {
+  position: absolute;
+  left: calc(330 * var(--u));
+  top: calc(20 * var(--u));
+  width: calc(860 * var(--u));
+  height: calc(770 * var(--u));
+}
+
+/* ── tablet / mobile: stack post, hint and panel ────────────── */
+@media (max-width: 899px) {
+  .card {
+    position: relative;
+    left: auto;
+    top: auto;
+    width: auto;
+    height: auto;
+    margin-top: 12px;
+    padding: 24px 20px 32px;
+    border-radius: 40px;
+    display: grid;
+    justify-items: center;
+    gap: 8px;
+  }
+
+  .post {
+    position: relative;
+    left: auto;
+    top: auto;
+    width: min(56vw, 260px);
+    margin-top: -8px;
+  }
+
+  .hint {
+    position: static;
+    order: -1;
+    font-size: 14px;
+  }
+
+  .panel {
+    position: relative;
+    inset: auto;
+    width: 100%;
+    margin-top: 16px;
+  }
+
+  .intro,
+  .skillsets,
+  .wheel {
+    position: relative;
+    left: auto;
+    top: auto;
+    width: 100%;
+    height: auto;
+  }
+
+  .row {
+    font-size: 17px;
+    padding-left: 4px;
+    min-height: 54px;
+  }
+
+  .bio {
+    font-size: 16px;
+    line-height: 1.35;
+    gap: 16px;
+    margin-top: 20px;
+  }
+
+  .skRow {
+    grid-template-columns: 1fr 1fr;
+    background-position: 50% 0;
+    min-height: 96px;
+  }
+
+  .skRow > :first-child {
+    padding-left: 8px;
+  }
+
+  .skRow > :last-child {
+    padding-left: 16px;
+  }
+
+  .skTitle {
+    font-size: 21px;
+  }
+
+  .numbered,
+  .plain {
+    font-size: 15px;
+    gap: 6px;
+  }
+}

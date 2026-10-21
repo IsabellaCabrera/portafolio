@@ -1,0 +1,31 @@
+/* Figma "About / 0x": 1440 × 1024 above the footer */
+.section {
+  position: relative;
+  height: calc(1024 * var(--u));
+  max-width: var(--layout-page-width);
+  margin-inline: auto;
+}
+
+.crumbs {
+  position: absolute;
+  left: calc(124 * var(--u));
+  top: calc(112 * var(--u));
+  z-index: 5;
+}
+
+@media (max-width: 1180px) {
+  .crumbs {
+    top: calc(112 * var(--u) + 30px);
+  }
+}
+
+@media (max-width: 899px) {
+  .section {
+    height: auto;
+    padding: 128px max(16px, env(safe-area-inset-right, 0px)) 48px max(16px, env(safe-area-inset-left, 0px));
+  }
+
+  .crumbs {
+    position: static;
+  }
+}
