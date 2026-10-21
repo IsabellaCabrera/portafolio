@@ -137,6 +137,7 @@ export function HomeExperience({ lang }: { lang: Locale }) {
   );
 
   const map = asset("/assets/home/map.webp");
+  const blocks = asset("/assets/entrance/blocks.webp");
   const photo = asset("/assets/home/photo-isa.webp");
   const postcard = asset("/assets/home/postcard.webp");
 
@@ -212,6 +213,9 @@ export function HomeExperience({ lang }: { lang: Locale }) {
                       top: `${(y / 1024) * 100}%`,
                       width: `${(288 / 1440) * 100}%`,
                       height: `${(h / 1024) * 100}%`,
+                      backgroundImage: `url(${blocks.src})`,
+                      backgroundSize: `${(1440 / 288) * 100}% ${(1024 / h) * 100}%`,
+                      backgroundPosition: `${(x / 1152) * 100}% ${(y / (1024 - h)) * 100}%`,
                       ["--d" as string]: `${Math.abs(c - 2) * 70 + Math.abs(r - 1.5) * 60}ms`,
                       ["--dx" as string]: `${(c - 2) * 14}%`,
                       ["--dy" as string]: `${(r - 1.5) * 18 + 30}%`,
