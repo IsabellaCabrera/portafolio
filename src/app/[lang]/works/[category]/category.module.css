@@ -91,16 +91,7 @@
 }
 
 @media (max-width: 1180px) {
-  .crumbs {
-    top: calc(131 * var(--u) + 30px);
-  }
-
-  .intro {
-    top: calc(190 * var(--u) + 40px);
-  }
-
   .skills {
-    top: calc(237 * var(--u) + 40px);
     width: calc(380 * var(--u));
   }
 }

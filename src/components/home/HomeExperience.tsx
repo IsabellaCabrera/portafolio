@@ -119,6 +119,10 @@ export function HomeExperience({ lang }: { lang: Locale }) {
       if (event.metaKey || event.ctrlKey || event.shiftKey || event.button !== 0) return;
       event.preventDefault();
       if (focused) return;
+      if (id === null) {
+        router.push(href);
+        return;
+      }
       setFocused(id);
       timer.current = window.setTimeout(() => router.push(href), reduced.current ? 120 : FOCUS_MS);
     },

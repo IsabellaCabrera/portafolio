@@ -24,6 +24,7 @@
   font-weight: 400;
   color: var(--color-text-ink);
   text-decoration: none;
+  white-space: nowrap;
   line-height: 1.15;
   padding-block: 4px;
   min-height: 44px;

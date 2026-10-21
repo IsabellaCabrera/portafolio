@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { notFound } from "next/navigation";
 import { isLocale, locales } from "@/i18n/config";
 import { siteFontVariables } from "@/lib/fonts";
+import { siteUrl } from "@/lib/site";
 import "@/styles/globals.css";
 
 export function generateStaticParams() {
@@ -11,7 +12,18 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
   const { lang } = await params;
   const es = lang === "es";
+  const description = es
+    ? "Diseñadora de medios interactivos en Cali, Colombia. UX/UI, branding e ilustración."
+    : "Interactive media designer in Cali, Colombia. UX/UI, branding and illustration.";
   return {
+    metadataBase: new URL(siteUrl()),
+    openGraph: {
+      type: "website",
+      siteName: "Isabella Cabrera Sogamoso",
+      locale: es ? "es_CO" : "en_US",
+      title: es ? "Bienvenidos a mi ciudad creativa" : "Welcome to my creative city",
+      description,
+    },
     title: {
       default: "Isabella Cabrera Sogamoso — Portfolio",
       template: "%s · Isabella Cabrera Sogamoso",

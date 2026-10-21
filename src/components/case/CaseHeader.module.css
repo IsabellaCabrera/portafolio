@@ -88,17 +88,6 @@
   color: var(--color-text-ink);
 }
 
-@media (max-width: 1180px) {
-  .crumbs {
-    top: calc(131 * var(--u) + 30px);
-  }
-
-  .intro,
-  .side {
-    top: calc(190 * var(--u) + 40px);
-  }
-}
-
 @media (max-width: 899px) {
   .header {
     height: auto;

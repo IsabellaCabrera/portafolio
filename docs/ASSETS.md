@@ -66,8 +66,8 @@ Mapeo: `scripts/assets_map.py`. Modelos 3D: `scripts/optimize_glb.py` (texturas 
 | `04-categorias/product-design/hero-beetle-product-design-.png` | `/assets/works/beetle-product-design.webp` | 1343×1400 |
 | `logo.svg` | `/assets/logo.svg` | vector |
 | `05-proyectos/Case  Branding  ENTO/ENTO - Primary.svg` | `/assets/cases/ento/logo-primary.svg` | vector |
-| `03-about/About  03 Experiences/l_nea_del_tiempo_portafolio.txt` | `/content/experiences.txt` | texto |
-| `03-about/About  04 Passions/04 Passions.txt` | `/content/passions.txt` | texto |
+| `03-about/About  03 Experiences/l_nea_del_tiempo_portafolio.txt` | `/content/experiences.en.txt` (+ `experiences.es.txt` traducido) | texto |
+| `03-about/About  04 Passions/04 Passions.txt` | `/content/passions.en.txt` (+ `passions.es.txt` traducido) | texto |
 | `hero-beetle-product-design-.glb` (chat) | `/models/beetle-product-design.glb` | 7.1 MB → 2.5 MB |
 | `hero-beetle-branding.glb` (chat) | `/models/beetle-branding.glb` | 8.1 MB → 2.9 MB |
 

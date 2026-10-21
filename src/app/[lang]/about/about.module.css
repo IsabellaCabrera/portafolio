@@ -13,12 +13,6 @@
   z-index: 5;
 }
 
-@media (max-width: 1180px) {
-  .crumbs {
-    top: calc(112 * var(--u) + 30px);
-  }
-}
-
 @media (max-width: 899px) {
   .section {
     height: auto;

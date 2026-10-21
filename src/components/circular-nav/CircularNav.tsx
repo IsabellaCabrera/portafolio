@@ -93,6 +93,8 @@ export function CircularNav({
   const activeRef = useRef(active);
   const anim = useRef<AnimationPlaybackControls | null>(null);
   const interacting = useRef(false);
+  /** where the dial is heading (keeps rapid key presses consistent) */
+  const targetRef = useRef(n ? mod(initialIndex, n) : 0);
 
   // ── geometry ────────────────────────────────────────────────
   useIsoLayoutEffect(() => {
@@ -138,6 +140,7 @@ export function CircularNav({
   const settleTo = useCallback(
     (target: number, velocity = 0) => {
       anim.current?.stop();
+      targetRef.current = target;
       const controls = reduced
         ? animate(pos, target, { duration: 0.15, ease: "easeOut" })
         : animate(pos, target, { type: "spring", ...WHEEL.spring, velocity });
@@ -197,10 +200,12 @@ export function CircularNav({
       else settleTo(Math.round(pos.get()));
       return;
     }
-    const first = d.samples[0]!;
-    const last = d.samples[d.samples.length - 1]!;
-    const dt = Math.max(1, last.t - first.t) / 1000;
-    const velocity = -((last.y - first.y) / dt) / pxPerStep; // index units / s
+    // only the last 100 ms count, so "drag, pause, release" doesn't fling
+    const recent = d.samples.filter((s) => e.timeStamp - s.t <= 100);
+    const first = recent[0];
+    const last = recent[recent.length - 1];
+    const dt = first && last ? Math.max(1, last.t - first.t) / 1000 : 1;
+    const velocity = first && last && recent.length > 1 ? -((last.y - first.y) / dt) / pxPerStep : 0; // index units / s
     const projected = pos.get() + velocity * WHEEL.inertia;
     settleTo(Math.round(projected), velocity);
   };
@@ -223,7 +228,7 @@ export function CircularNav({
     e.preventDefault();
     interacting.current = true;
     if (e.key === "Home" || e.key === "End") goTo(mod(next, n));
-    else settleTo(Math.round(pos.get()) + (next - current));
+    else settleTo(targetRef.current + (next - current > 0 ? 1 : -1));
   };
 
   // ── optional wheel capture (off by default: never hijack page scroll) ──

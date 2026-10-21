@@ -99,12 +99,6 @@
   background-size: 100% 1.5px;
 }
 
-@media (max-width: 1180px) {
-  .lobby {
-    padding-top: calc(131 * var(--u) + 40px);
-  }
-}
-
 @media (max-width: 767px) {
   .lobby {
     min-height: 0;

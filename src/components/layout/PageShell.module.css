@@ -18,4 +18,10 @@
 .main {
   flex: 1;
   outline: none;
+  padding-top: var(--nav-shift);
+}
+
+/* The home map runs behind the navbar */
+.shell[data-bg="home"] .main {
+  padding-top: 0;
 }

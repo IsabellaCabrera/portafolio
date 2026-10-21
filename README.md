@@ -49,9 +49,16 @@ src/
 public/
   assets/                imágenes optimizadas (ver docs/ASSETS.md)
   models/                escarabajos .glb optimizados
-  content/               experiences.txt, passions.txt
+  content/               experiences.{en,es}.txt, passions.{en,es}.txt (rueda de About)
 scripts/                 conversión de assets y optimización de modelos
 ```
+
+## Contenido editable
+
+- Textos compartidos (nav, footer, metadatos): `src/content/dictionary.ts`
+- Home: `src/content/home.ts` · About: `src/content/about.ts` · Works/categorías: `src/content/works.ts`
+- Casos de estudio: `src/content/cases.ts` (inglés tal cual Figma + español)
+- Experiencias y pasiones: `public/content/*.txt` (ver `docs/CIRCULAR_NAV.md`)
 
 ## Agregar un proyecto
 
