@@ -1,8 +1,12 @@
+.wrap {
+  display: grid;
+  margin-top: calc(40 * var(--u));
+}
+
 /* Full bleed: the pile scales with the viewport width (Figma 1440 × 740) */
 .pile {
   position: relative;
   width: 100%;
-  margin-top: calc(60 * var(--u));
   overflow: hidden;
 }
 
@@ -36,10 +40,10 @@
 }
 
 .hint {
-  position: absolute;
-  right: max(16px, calc(124 * var(--u)));
-  top: max(8px, calc(16 * var(--u)));
-  z-index: 50;
+  /* sits just above the sticker pile, on the right */
+  justify-self: end;
+  margin-right: max(16px, calc(124 * var(--u)));
+  margin-bottom: 8px;
   display: inline-flex;
   align-items: center;
   gap: 10px;
@@ -86,7 +90,7 @@
 }
 
 @media (max-width: 899px) {
-  .pile {
+  .wrap {
     margin-top: 24px;
   }
 }
