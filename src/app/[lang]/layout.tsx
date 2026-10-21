@@ -32,7 +32,6 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
       ? "Diseñadora de medios interactivos en Cali, Colombia. UX/UI, branding e ilustración."
       : "Interactive media designer in Cali, Colombia. UX/UI, branding and illustration.",
     alternates: { languages: { en: "/en", es: "/es" } },
-    icons: { icon: "/assets/logo.svg" },
   };
 }
 
