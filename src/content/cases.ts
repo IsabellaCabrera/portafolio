@@ -367,6 +367,14 @@ export const entoCopy = {
   dragHint: { en: "Grab a sticker and drag it around", es: "Agarra un sticker y arrástralo" } satisfies T,
   stickersAlt: { en: "ENTO die-cut stickers scattered over the ENTO FOOD READY TO EAT pattern", es: "Stickers troquelados de ENTO esparcidos sobre el patrón ENTO FOOD READY TO EAT" } satisfies T,
   illustrationsTitle: { en: "Illustrations", es: "Ilustraciones" } satisfies T,
+  illustrationNames: {
+    tomato: { en: "Tomato", es: "Tomate" },
+    mushroom: { en: "Mushroom", es: "Champiñón" },
+    bacon: { en: "Bacon", es: "Tocineta" },
+    ham: { en: "Ham", es: "Jamón" },
+    basil: { en: "Basil", es: "Albahaca" },
+    character: { en: "Warrior", es: "Guerrero" },
+  } satisfies Record<string, T>,
   processTitle: { en: "Design Process", es: "Proceso de diseño" } satisfies T,
   process: [
     {

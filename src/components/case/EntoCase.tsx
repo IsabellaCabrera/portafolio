@@ -9,15 +9,10 @@ import { categoryCopy, worksCopy } from "@/content/works";
 import { ProjectStamps } from "@/components/works/ProjectStamps";
 import { CaseHeader } from "./CaseHeader";
 import { StickerPile } from "./StickerPile";
+import { IllustrationGallery } from "./IllustrationGallery";
 import styles from "./EntoCase.module.css";
 
 type R = { x: number; y: number; w: number; h: number };
-const pct = (r: R, fw: number, fh: number): CSSProperties => ({
-  left: `${(r.x / fw) * 100}%`,
-  top: `${(r.y / fh) * 100}%`,
-  width: `${(r.w / fw) * 100}%`,
-  height: `${(r.h / fh) * 100}%`,
-});
 
 /* Sticker pile — Figma y 1290 → 2030 (stickers are exported already rotated: placed at their render bounds) */
 const STICKER_Y = 1290;
@@ -36,16 +31,14 @@ const stickers: { src: AssetPath; r: R }[] = [
   { src: "/assets/cases/ento/sticker-midcentury.webp", r: { x: 44, y: 1476, w: 380, h: 117 } },
 ];
 
-/* Illustrations grid — Figma y 4361 → 5160, cells 395 × 395 between hairlines */
-const ILL_Y = 4361;
-const ILL_H = 800;
-const illustrations: { src: AssetPath; alt: keyof typeof entoCopy.alts; r: R }[] = [
-  { src: "/assets/cases/ento/tomate.webp", alt: "tomato", r: { x: 192, y: 4421, w: 271, h: 275 } },
-  { src: "/assets/cases/ento/champinon.webp", alt: "mushroom", r: { x: 568, y: 4440, w: 297, h: 256 } },
-  { src: "/assets/cases/ento/tocineta.webp", alt: "bacon", r: { x: 956, y: 4457, w: 312, h: 217 } },
-  { src: "/assets/cases/ento/pata-de-jamon.webp", alt: "ham", r: { x: 67, y: 4707, w: 522, h: 500 } },
-  { src: "/assets/cases/ento/albahaca.webp", alt: "basil", r: { x: 516, y: 4756, w: 401, h: 401 } },
-  { src: "/assets/cases/ento/illustration-vectorized.webp", alt: "character", r: { x: 935, y: 4766, w: 375, h: 384 } },
+/* Illustrations — interactive mosaic; each tile tinted with an ENTO process colour */
+const illustrations: { src: AssetPath; key: keyof typeof entoCopy.illustrationNames; color: string }[] = [
+  { src: "/assets/cases/ento/tomate.webp", key: "tomato", color: "#5d5609" },
+  { src: "/assets/cases/ento/champinon.webp", key: "mushroom", color: "#045077" },
+  { src: "/assets/cases/ento/tocineta.webp", key: "bacon", color: "#820253" },
+  { src: "/assets/cases/ento/pata-de-jamon.webp", key: "ham", color: "#045077" },
+  { src: "/assets/cases/ento/albahaca.webp", key: "basil", color: "#973102" },
+  { src: "/assets/cases/ento/illustration-vectorized.webp", key: "character", color: "#5d5609" },
 ];
 
 /* Design process: 4 × 2 full-bleed grid; colored cards carry the step, the rest are flavor photos */
@@ -126,24 +119,14 @@ export function EntoCase({ lang }: { lang: Locale }) {
       {/* Illustrations grid */}
       <section className={styles.illustrations}>
         <h2 className={styles.h2}>{e.illustrationsTitle[lang]}</h2>
-        <div className={styles.illGrid} style={{ aspectRatio: `1440 / ${ILL_H}` }}>
-          <svg className={styles.hairlines} viewBox="0 0 1440 800" preserveAspectRatio="none" aria-hidden="true">
-            {[125, 520, 915, 1310].map((x) => (
-              <line key={x} x1={x} y1={0} x2={x} y2={790} />
-            ))}
-            {[0.5, 395, 789.5].map((y) => (
-              <line key={y} x1={125} y1={y} x2={1310} y2={y} />
-            ))}
-          </svg>
-          {illustrations.map((it) => {
-            const img = asset(it.src);
-            return (
-              <span key={it.src} className={styles.illItem} style={pct({ ...it.r, y: it.r.y - ILL_Y }, 1440, ILL_H)}>
-                <Image src={img.src} width={img.width} height={img.height} alt={e.alts[it.alt][lang]} sizes="(max-width: 767px) 40vw, 400px" />
-              </span>
-            );
-          })}
-        </div>
+        <IllustrationGallery
+          items={illustrations.map((it) => ({
+            img: asset(it.src),
+            alt: e.alts[it.key][lang],
+            name: e.illustrationNames[it.key][lang],
+            color: it.color,
+          }))}
+        />
       </section>
 
       {/* Design Process */}
