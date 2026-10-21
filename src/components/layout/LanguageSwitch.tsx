@@ -6,9 +6,10 @@ import { switchLocalePath, type Locale } from "@/i18n/config";
 import styles from "./LanguageSwitch.module.css";
 
 /**
- * EN / ES toggle: a pill switch (checkbox) styled with the UI kit tokens.
- * Off = English, on = Spanish. Keeps the current route, query and #hash and
- * remembers the choice in a cookie.
+ * Eng / Esp toggle (Uiverse "button-3" knob toggle) styled with the UI kit:
+ * the knob shows the current language and slides to the other side.
+ * Off = English, on = Spanish. Keeps route, query and #hash; remembers the
+ * choice in a cookie.
  */
 export function LanguageSwitch({
   lang,
@@ -33,24 +34,19 @@ export function LanguageSwitch({
   };
 
   return (
-    <div className={styles.wrap} data-pending={pending || undefined}>
-      <span className={styles.tag} data-active={!checked} aria-hidden="true">
-        {labels.en}
+    <span className={styles.button} data-pending={pending || undefined}>
+      <input
+        type="checkbox"
+        role="switch"
+        className={styles.checkbox}
+        checked={checked}
+        onChange={(e) => onChange(e.target.checked)}
+        aria-label={`${labels.label}: ${checked ? "Español" : "English"}. ${labels.switchTo}`}
+      />
+      <span className={styles.knob} aria-hidden="true">
+        {checked ? labels.es : labels.en}
       </span>
-      <label className={styles.switch}>
-        <input
-          type="checkbox"
-          role="switch"
-          className={styles.input}
-          checked={checked}
-          onChange={(e) => onChange(e.target.checked)}
-          aria-label={`${labels.label}: Español`}
-        />
-        <span className={styles.knob} aria-hidden="true" />
-      </label>
-      <span className={styles.tag} data-active={checked} aria-hidden="true">
-        {labels.es}
-      </span>
-    </div>
+      <span className={styles.layer} aria-hidden="true" />
+    </span>
   );
 }

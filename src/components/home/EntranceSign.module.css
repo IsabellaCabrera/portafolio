@@ -75,12 +75,6 @@
   transition: transform var(--dur-base) var(--ease-out);
 }
 
-.sign:hover:not(:disabled) .word[data-long] {
-  /* "PORTAFOLIO" is one letter longer than the Figma word: keep it clear of the arrow */
-  font-size: calc(65 / 713 * 100cqw);
-  top: 40.6%;
-}
-
-.arrow {
+.sign:hover:not(:disabled) .arrow {
   transform: translateX(10%);
 }
